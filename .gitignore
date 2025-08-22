@@ -1,0 +1,7 @@
+.nf-test/
+.DS_Store
+*.log
+*.tmp
+*.bak
+work/
+results/

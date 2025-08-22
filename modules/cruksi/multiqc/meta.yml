@@ -1,0 +1,6 @@
+name: multiqc
+namespace: cruksi
+description: Aggregate QC outputs into a single MultiQC report
+keywords: [QC, reporting, MultiQC]
+maintainer: "@your-handle"
+version: "1.0.0"

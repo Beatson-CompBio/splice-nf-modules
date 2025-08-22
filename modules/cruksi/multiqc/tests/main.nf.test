@@ -1,0 +1,10 @@
+// nf-test spec (minimal example)
+// Provide at least one staged file (e.g., FastQC HTML/ZIP) for MultiQC to scan.
+
+include { MULTIQC } from '../main.nf'
+
+workflow test_multiqc {
+  main:
+    def f = file('data/dummy.txt')
+    Channel.of(f) | MULTIQC | view { it }
+}

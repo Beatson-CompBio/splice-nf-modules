@@ -1,0 +1,11 @@
+// nf-test spec (minimal example)
+// Replace with richer assertions and synthetic data setup if desired.
+
+include { FASTQC } from '../main.nf'
+
+workflow test_fastqc {
+  main:
+    def meta = [id: 'sampleA']
+    def f = file('data/sampleA_R1.fastq.gz')
+    Channel.of(tuple(meta, f)) | FASTQC | view { it }
+}
