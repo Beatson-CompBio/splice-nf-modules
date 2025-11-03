@@ -1,4 +1,5 @@
 # Modules index
+![nf-test](https://github.com/Beatson-CompBio/splice-nf-modules/actions/workflows/nf-test.yml/badge.svg)
 
 This page lists available modules. Paths are relative to the repo root.
 
