@@ -1,8 +1,7 @@
+# .github/workflows/nf-test.yml
 name: nf-test
-
 on:
-  push:
-    branches: [ main ]
+  push: { branches: [main] }
   pull_request:
 
 jobs:
@@ -10,109 +9,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        with: { fetch-depth: 0 }
 
-      - name: Set up Java (Nextflow needs Java)
-        uses: actions/setup-java@v4
+      # Installs nf-test on the runner (pick a version or omit for latest)
+      - uses: nf-core/setup-nf-test@v1
         with:
-          distribution: temurin
-          java-version: '17'
+          nf-test-version: v0.9.3   # or leave blank for latest
 
+      # Nextflow (nf-test needs it)
       - name: Install Nextflow
         run: |
           curl -s https://get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/nextflow
           nextflow -version
 
-      - name: Cache nf-test
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/nf-test
-          key: nf-test-${{ runner.os }}-v1
+      # Run either all tests, or only those touched in this PR
+      - name: Run nf-test (changed files only)
+        if: github.event_name == 'pull_request'
+        run: nf-test test --changes-since origin/${{ github.base_ref }}
 
-      - name: Install nf-test (auto-detect asset)
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # improves API rate limits
-        run: |
-          set -euo pipefail
-
-          OS="$(uname -s | tr '[:upper:]' '[:lower:]')"    # linux or darwin
-          ARCH="$(uname -m)"
-          case "$ARCH" in
-            x86_64|amd64) ARCH_RE='(x86_64|amd64)';;
-            aarch64|arm64) ARCH_RE='(aarch64|arm64)';;
-            *) echo "Unsupported arch: $ARCH" >&2; exit 1;;
-          esac
-
-          # Fetch latest release assets and pick the first matching OS/arch
-          URL=$(
-            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-}" \
-              https://api.github.com/repos/nf-core/nf-test/releases/latest \
-            | jq -r --arg os "$OS" --arg re "$ARCH_RE" '
-                .assets[].browser_download_url
-                | select(test($os; "i"))
-                | select(test($re; "i"))
-              ' \
-            | head -n1
-          )
-
-          # Fallback: if no OS/arch suffix assets, try a plain "nf-test" binary
-          if [ -z "${URL}" ]; then
-            URL=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-}" \
-              https://api.github.com/repos/nf-core/nf-test/releases/latest \
-              | jq -r '.assets[].browser_download_url | select(endswith("/nf-test"))' \
-              | head -n1)
-          fi
-
-          if [ -z "${URL}" ]; then
-            echo "Could not find a matching nf-test asset. Available assets were:" >&2
-            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-}" \
-              https://api.github.com/repos/nf-core/nf-test/releases/latest \
-              | jq -r '.assets[].name'
-            exit 1
-          fi
-
-          echo "Downloading $URL"
-          curl -fsSL "$URL" -o nf-test
-          chmod +x nf-test
-          sudo mv nf-test /usr/local/bin/nf-test
-
-          # Sanity check: make sure we didn’t download an HTML page
-          [ "$(wc -c </usr/local/bin/nf-test)" -gt 100000 ] || { echo "nf-test binary looks too small"; exit 1; }
-
-          /usr/local/bin/nf-test --version
-          
-      - name: Find test files
-        id: discover
-        shell: bash
-        run: |
-          # list *.test files under modules/**/tests/
-          mapfile -t TESTS < <(git ls-files 'modules/**/tests/*.test' | sort)
-          echo "Found ${#TESTS[@]} test files"
-          printf '%s\n' "${TESTS[@]}" > .tests.txt
-          # Build a newline-separated list for summary, and a JSON array for matrix
-          jq -R -s -c 'split("\n") | map(select(length>0))' .tests.txt > .tests.json
-          echo "matrix=$(cat .tests.json)" >> "$GITHUB_OUTPUT"
-
-      - name: Run nf-test (all discovered tests)
-        if: ${{ steps.discover.outputs.matrix != '[]' }}
-        run: |
-          # You can pass extra nf-test flags here if needed
-          nf-test test $(cat .tests.txt)
-
-      - name: Job summary
-        if: always()
-        run: |
-          echo "## nf-test summary" >> $GITHUB_STEP_SUMMARY
-          if [ -s .tests.txt ]; then
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "| Test file |" >> $GITHUB_STEP_SUMMARY
-            echo "|---|" >> $GITHUB_STEP_SUMMARY
-            while IFS= read -r t; do
-              echo "| \`$t\` |" >> $GITHUB_STEP_SUMMARY
-            done < .tests.txt
-          else
-            echo "No nf-test files found." >> $GITHUB_STEP_SUMMARY
-          fi
+      - name: Run nf-test (full)
+        if: github.event_name != 'pull_request'
+        run: nf-test test
