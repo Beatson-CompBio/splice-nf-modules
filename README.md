@@ -1,4 +1,5 @@
 # splice-nf-modules
+![nf-test](https://github.com/Beatson-CompBio/splice-nf-modules/actions/workflows/nf-test.yml/badge.svg)
 
 Shared **SPLICE** modules for Nextflow DSL2 pipelines (CRUK Scotland Institute namespace: `cruksi`).
 These modules are designed to be **vendored** into pipelines using `git subtree` so each
