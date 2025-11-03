@@ -31,25 +31,57 @@ jobs:
           path: ~/.cache/nf-test
           key: nf-test-${{ runner.os }}-v1
 
-      - name: Install nf-test (OS/arch-aware)
+      - name: Install nf-test (auto-detect asset)
         shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # improves API rate limits
         run: |
           set -euo pipefail
-          OS="$(uname -s | tr '[:upper:]' '[:lower:]')"      # linux or darwin
+
+          OS="$(uname -s | tr '[:upper:]' '[:lower:]')"    # linux or darwin
           ARCH="$(uname -m)"
           case "$ARCH" in
-            x86_64|amd64) ARCH="x86_64" ;;
-            aarch64|arm64) ARCH="aarch64" ;;
-            *) echo "Unsupported arch: $ARCH" >&2; exit 1 ;;
+            x86_64|amd64) ARCH_RE='(x86_64|amd64)';;
+            aarch64|arm64) ARCH_RE='(aarch64|arm64)';;
+            *) echo "Unsupported arch: $ARCH" >&2; exit 1;;
           esac
 
-          ASSET="nf-test-${OS}-${ARCH}"
-          URL="https://github.com/nf-core/nf-test/releases/latest/download/${ASSET}"
+          # Fetch latest release assets and pick the first matching OS/arch
+          URL=$(
+            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-}" \
+              https://api.github.com/repos/nf-core/nf-test/releases/latest \
+            | jq -r --arg os "$OS" --arg re "$ARCH_RE" '
+                .assets[].browser_download_url
+                | select(test($os; "i"))
+                | select(test($re; "i"))
+              ' \
+            | head -n1
+          )
 
-          echo "Downloading ${URL}"
-          curl -fL "$URL" -o nf-test
+          # Fallback: if no OS/arch suffix assets, try a plain "nf-test" binary
+          if [ -z "${URL}" ]; then
+            URL=$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-}" \
+              https://api.github.com/repos/nf-core/nf-test/releases/latest \
+              | jq -r '.assets[].browser_download_url | select(endswith("/nf-test"))' \
+              | head -n1)
+          fi
+
+          if [ -z "${URL}" ]; then
+            echo "Could not find a matching nf-test asset. Available assets were:" >&2
+            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN:-}" \
+              https://api.github.com/repos/nf-core/nf-test/releases/latest \
+              | jq -r '.assets[].name'
+            exit 1
+          fi
+
+          echo "Downloading $URL"
+          curl -fsSL "$URL" -o nf-test
           chmod +x nf-test
           sudo mv nf-test /usr/local/bin/nf-test
+
+          # Sanity check: make sure we didn’t download an HTML page
+          [ "$(wc -c </usr/local/bin/nf-test)" -gt 100000 ] || { echo "nf-test binary looks too small"; exit 1; }
+
           /usr/local/bin/nf-test --version
           
       - name: Find test files
