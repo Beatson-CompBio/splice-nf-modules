@@ -1,0 +1,41 @@
+{
+    "multiqc_versions_single": {
+        "content": [
+            [
+                "versions.yml:md5,737bb2c7cad54ffc2ec020791dc48b8f"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2025-12-09T11:52:49.52265324"
+    },
+    "multiqc_stub": {
+        "content": [
+            [
+                "multiqc_report.html",
+                "multiqc_data",
+                "multiqc_plots",
+                "versions.yml:md5,737bb2c7cad54ffc2ec020791dc48b8f"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2025-12-09T11:53:50.166953141"
+    },
+    "multiqc_versions_config": {
+        "content": [
+            [
+                "versions.yml:md5,737bb2c7cad54ffc2ec020791dc48b8f"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2025-12-09T11:53:28.586993402"
+    }
+}
