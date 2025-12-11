@@ -3,9 +3,9 @@ process PICARD_MARKDUPLICATES {
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/picard:3.1.1--hdfd78af_0' :
-        'biocontainers/picard:3.1.1--hdfd78af_0' }"
+    container "${ workflow.containerEngine in ['apptainer','singularity'] && !task.ext.singularity_pull_docker_container ?
+        'https://depot.galaxyproject.org/singularity/picard:3.4.0--hdfd78af_0' :
+        'quay.io/biocontainers/picard:3.4.0--hdfd78af_0' }"
 
     input:
     tuple val(meta), path(reads)
