@@ -3,9 +3,10 @@ process BEDTOOLS_GENOMECOV {
     label 'process_single'
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'biocontainers/bedtools:2.31.0--hf5e1c6e_2':
-        'biocontainers/bedtools:2.31.0--hf5e1c6e_2' }"
+    container "${ workflow.containerEngine in ['apptainer','singularity'] && !task.ext.singularity_pull_docker_container ?
+        // needs container with both bedtools and coreutils (sort) - created manually on wave registry
+        'oras://community.wave.seqera.io/library/bedtools_coreutils:80ff8ea34177b53b' :
+        'community.wave.seqera.io/library/bedtools_coreutils:12870eec0e2bfb60' }"
 
     input:
     tuple val(meta), path(intervals), val(scale)
