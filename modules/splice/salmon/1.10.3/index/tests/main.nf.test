@@ -12,8 +12,8 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = Channel.of([file(params.modules_testdata_base_path + "genomics/homo_sapiens/genome/genome.fasta", checkIfExists: true)])
-                input[1] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[0] = Channel.of([file("${moduleTestDir}/data/genome.fasta", checkIfExists: true)])
+                input[1] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 """
             }
         }
@@ -40,7 +40,7 @@ nextflow_process {
             process {
                 """
                 input[0] = Channel.of([])
-                input[1] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 """
             }
         }
@@ -66,8 +66,8 @@ nextflow_process {
             }
             process {
                 """
-                input[0] = Channel.of([file(params.modules_testdata_base_path + "genomics/homo_sapiens/genome/genome.fasta", checkIfExists: true)])
-                input[1] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[0] = Channel.of([file("${moduleTestDir}/data/genome.fasta", checkIfExists: true)])
+                input[1] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 """
             }
         }

@@ -6,12 +6,11 @@ nextflow_process {
     config "./nextflow.config"
 
     setup {
-        run("SALMON_INDEX") {
-            script "../../../salmon/index/main.nf"
+        run("SETUP_SALMON_INDEX") {
+            script "./setup_index.nf"
             process {
                 """
-                input[0] = Channel.of([file(params.modules_testdata_base_path + "genomics/homo_sapiens/genome/genome.fasta", checkIfExists: true)])
-                input[1] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[0] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 """
             }
         }
@@ -27,11 +26,11 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                     [ id:'test', single_end: true ], // meta map
-                    [ file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true) ]
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = ''
                 """
@@ -62,11 +61,11 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                     [ id:'test', single_end: true ], // meta map
-                    [ file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true) ]
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = ''
                 """
@@ -97,11 +96,11 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                     [ id:'test', single_end: true ], // meta map
-                    [ file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true) ]
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = 'A'
                 """
@@ -132,11 +131,11 @@ nextflow_process {
                 """
                 input[0] = Channel.of([
                     [ id:'test', single_end: true ], // meta map
-                    [ file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true) ]
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = 'A'
                 """
@@ -168,13 +167,13 @@ nextflow_process {
                 input[0] = Channel.of([
                     [ id:'test', single_end: true ], // meta map
                     [
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_2.fastq.gz", checkIfExists: true)
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true)
                     ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = ''
                 """
@@ -206,13 +205,13 @@ nextflow_process {
                 input[0] = Channel.of([
                     [ id:'test', single_end: true ], // meta map
                     [
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_2.fastq.gz", checkIfExists: true)
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true)
                     ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = ''
                 """
@@ -244,15 +243,15 @@ nextflow_process {
                 input[0] = Channel.of([
                     [ id:'test', single_end:false ], // meta map
                     [
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_2.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test2_1.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test2_2.fastq.gz", checkIfExists: true)
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_2.fastq.gz", checkIfExists: true)
                     ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = ''
                 """
@@ -284,15 +283,15 @@ nextflow_process {
                 input[0] = Channel.of([
                     [ id:'test', single_end:false ], // meta map
                     [
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_1.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test_2.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test2_1.fastq.gz", checkIfExists: true),
-                        file(params.modules_testdata_base_path + "genomics/sarscov2/illumina/fastq/test2_2.fastq.gz", checkIfExists: true)
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_2.fastq.gz", checkIfExists: true)
                     ]
                 ])
-                input[1] = SALMON_INDEX.out.index
-                input[2] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/genome.gtf", checkIfExists: true)])
-                input[3] = Channel.of([file(params.modules_testdata_base_path + "genomics/sarscov2/genome/transcriptome.fasta", checkIfExists: true)])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
                 input[4] = false
                 input[5] = ''
                 """

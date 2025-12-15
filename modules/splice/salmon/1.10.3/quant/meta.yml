@@ -1,4 +1,13 @@
 name: salmon_quant
+origin:
+  repository: "https://github.com/COMBINE-lab/salmon"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@kevinmenden"
+    - "@drpatelh"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.    
 description: gene/transcript quantification with Salmon
 keywords:
   - index
@@ -79,6 +88,6 @@ output:
 authors:
   - "@kevinmenden"
   - "@drpatelh"
+  - "@siddharthjayaraman"
 maintainers:
-  - "@kevinmenden"
-  - "@drpatelh"
+  - "@siddharthjayaraman"
