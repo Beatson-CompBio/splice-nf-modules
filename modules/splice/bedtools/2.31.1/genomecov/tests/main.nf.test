@@ -11,7 +11,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test' ], // meta map
-                    file(params.modules_testdata_base_path + "test.paired_end.bam", checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/test.paired_end.bam', checkIfExists: true),
                     1
                 ]
                 // sizes
@@ -37,7 +37,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test'],
-                    file(params.modules_testdata_base_path + "test.paired_end.bam", checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/test.paired_end.bam', checkIfExists: true),
                     0.5
                 ]
                 // sizes
@@ -63,11 +63,11 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test'],
-                    file(params.modules_testdata_base_path + "baits.bed", checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/baits.bed', checkIfExists: true),
                     0.5
                 ]
                 // sizes
-                input[1] = file(params.modules_testdata_base_path + "genome.sizes", checkIfExists: true)
+                input[1] = file("${moduleTestDir}" + '/data/genome.sizes', checkIfExists: true)
                 // extension
                 input[2] = 'txt'
                 input[3] = false
@@ -91,7 +91,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test' ], // meta map
-                    file(params.modules_testdata_base_path + "test.paired_end.bam", checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/test.paired_end.bam', checkIfExists: true),
                     1
                 ]
                 // sizes
@@ -119,7 +119,7 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test'],
-                    file(params.modules_testdata_base_path + "test.paired_end.bam", checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/test.paired_end.bam', checkIfExists: true),
                     0.5
                 ]
                 // sizes
@@ -147,11 +147,11 @@ nextflow_process {
                 """
                 input[0] = [
                     [ id:'test'],
-                    file(params.modules_testdata_base_path + "baits.bed", checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/baits.bed', checkIfExists: true),
                     0.5
                 ]
                 // sizes
-                input[1] = file(params.modules_testdata_base_path + "genome.sizes", checkIfExists: true)
+                input[1] = file("${moduleTestDir}" + '/data/genome.sizes', checkIfExists: true)
                 // extension
                 input[2] = 'txt'
                 input[3] = false
