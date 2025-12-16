@@ -1,4 +1,12 @@
 name: picard_markduplicates
+origin:
+  repository: "https://github.com/broadinstitute/picard"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@drpatelh"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Locate and tag duplicate reads in a BAM file
 keywords:
   - markduplicates
@@ -71,9 +79,7 @@ output:
       pattern: "versions.yml"
 authors:
   - "@drpatelh"
-  - "@projectoriented"
-  - "@ramprasadn"
+  - "@HR-cruk"
 maintainers:
-  - "@drpatelh"
-  - "@projectoriented"
-  - "@ramprasadn"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"
