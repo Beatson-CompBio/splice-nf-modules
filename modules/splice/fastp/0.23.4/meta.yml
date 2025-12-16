@@ -1,4 +1,12 @@
 name: fastp
+origin:
+  repository: "https://www.github.com/OpenGene/fastp"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@drpatelh"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Perform adapter/quality trimming on sequencing reads
 keywords:
   - trimming
@@ -108,7 +116,7 @@ output:
           pattern: "versions.yml"
 authors:
   - "@drpatelh"
-  - "@kevinmenden"
+  - "@HR-cruk"
 maintainers:
-  - "@drpatelh"
-  - "@kevinmenden"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"
