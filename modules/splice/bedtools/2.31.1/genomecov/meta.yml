@@ -1,4 +1,12 @@
 name: bedtools_genomecov
+origin:
+  repository: "https://github.com/arq5x/bedtools2"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@edmundmiller"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Computes histograms (default), per-base reports (-d) and BEDGRAPH (-bg)
   summaries of feature coverage (e.g., aligned sequences) for a given genome.
 keywords:
@@ -59,13 +67,7 @@ output:
           pattern: "versions.yml"
 authors:
   - "@edmundmiller"
-  - "@sruthipsuresh"
-  - "@drpatelh"
-  - "@sidorov-si"
-  - "@chris-cheshire"
+  - "@HR-cruk"
 maintainers:
-  - "@edmundmiller"
-  - "@sruthipsuresh"
-  - "@drpatelh"
-  - "@sidorov-si"
-  - "@chris-cheshire"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"
