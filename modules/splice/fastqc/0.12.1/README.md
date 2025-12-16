@@ -46,7 +46,7 @@ This module may support per invocation options via `task.ext.*`.
 If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
-- repository: https://www.https://github.com/s-andrews/FastQC
+- repository: https://www.github.com/s-andrews/FastQC
 - module_source: nf-core/modules
 - original_authors: @drpatelh
 

@@ -1,6 +1,6 @@
-name: fastqc
+name: "fastqc"
 origin:
-  repository: "https://www.https://github.com/s-andrews/FastQC"
+  repository: "https://www.github.com/s-andrews/FastQC"
   module_source: "nf-core/modules"
   original_authors:
     - "@drpatelh"
