@@ -4,11 +4,10 @@ process BEDTOOLS_GENOMECOV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine in ['apptainer','singularity'] && !task.ext.singularity_pull_docker_container ?
-        // needs container with both bedtools and coreutils (sort) - created manually on wave registry
-        // bedtools version 2.31.1 + coreutils version 8.25
-        // nf-core uses bedtools 2.31.1 + coreutils 9.1 - community.wave.seqera.io/library/bedtools_coreutils:a623c13f66d5262b
-        'oras://community.wave.seqera.io/library/bedtools_coreutils:80ff8ea34177b53b' :
-        'community.wave.seqera.io/library/bedtools_coreutils:12870eec0e2bfb60' }"
+        //'quay.io/splice/bedtools_coreutils:2.31.1_9.5--39315a8710c9e5d3' :
+        //'quay.io/splice/bedtools_coreutils:2.31.1_9.5--39315a8710c9e5d3' }"
+        'quay.io/splice/bedtools_coreutils:2.31.1_9.5--6f6f340c64296d75' :
+        'quay.io/splice/bedtools_coreutils:2.31.1_9.5--6f6f340c64296d75' }"
 
     input:
     tuple val(meta), path(intervals), val(scale)
