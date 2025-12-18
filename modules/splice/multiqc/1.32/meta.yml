@@ -1,4 +1,12 @@
 name: multiqc
+origin:
+  repository: "https://github.com/MultiQC/MultiQC"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@abhi18av"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Aggregate results from bioinformatics analyses across many samples into
   a single report
 keywords:
@@ -82,11 +90,7 @@ output:
           - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@abhi18av"
-  - "@bunop"
-  - "@drpatelh"
-  - "@jfy133"
+  - "@HR-cruk"
 maintainers:
-  - "@abhi18av"
-  - "@bunop"
-  - "@drpatelh"
-  - "@jfy133"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"

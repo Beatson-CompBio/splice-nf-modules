@@ -30,7 +30,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-12T11:07:12.213570333"
+        "timestamp": "2025-12-16T17:05:20.529718122"
     },
     "sarscov2 - no scale - stub": {
         "content": [
@@ -96,7 +96,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-12T11:07:31.543078034"
+        "timestamp": "2025-12-16T17:05:42.058652941"
     },
     "sarscov2 - scale - stub": {
         "content": [
@@ -162,7 +162,7 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.2"
         },
-        "timestamp": "2025-12-12T11:06:52.918852513"
+        "timestamp": "2025-12-16T17:04:59.794129836"
     },
     "sarscov2 - dummy sizes - stub": {
         "content": [
