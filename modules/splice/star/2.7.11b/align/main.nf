@@ -4,8 +4,8 @@ process STAR_ALIGN {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:59cdd445419f14abac76b31dd0d71217994cbcc9-0' :
-        'biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:59cdd445419f14abac76b31dd0d71217994cbcc9-0' }"
+        'quay.io/splice/star_samtools_gawk:2.7.11b_1.21_5.1.0--cfg-f64181b036c1' :
+        'quay.io/splice/star_samtools_gawk:2.7.11b_1.21_5.1.0--cfg-f64181b036c1' }"
 
     input:
     tuple val(meta), path(reads, stageAs: "input*/*")

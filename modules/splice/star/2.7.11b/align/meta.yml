@@ -1,4 +1,14 @@
 name: star_align
+origin:
+  repository: "https://github.com/alexdobin/STAR"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@kevinmenden"
+    - "@drpatelh"
+    - "@praveenraj2018"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.   
 description: Align reads to a reference genome using STAR
 keywords:
   - align
@@ -221,10 +231,9 @@ output:
           description: STAR output bedGraph format file(s) (optional)
           pattern: "*.bg"
 authors:
+  - "@siddharthjayaraman"
   - "@kevinmenden"
   - "@drpatelh"
   - "@praveenraj2018"
 maintainers:
-  - "@kevinmenden"
-  - "@drpatelh"
-  - "@praveenraj2018"
+  - "@siddharthjayaraman"
