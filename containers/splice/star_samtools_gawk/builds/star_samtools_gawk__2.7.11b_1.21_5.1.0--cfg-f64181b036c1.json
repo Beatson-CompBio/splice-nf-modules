@@ -1,0 +1,25 @@
+{
+  "image": "quay.io/splice/star_samtools_gawk",
+  "tag": "2.7.11b_1.21_5.1.0--cfg-f64181b036c1",
+  "platform": "linux/amd64",
+  "cfg_hash": "f64181b036c1",
+  "tools": {
+    "star": "2.7.11b",
+    "samtools": "1.21",
+    "gawk": "5.1.0"
+  },
+  "inputs": {
+    "env_yml_sha256": "e386a107cd4e98a725395a18e7d8d20e79907f8cab336464121c5f99ed48c9ba",
+    "dockerfile_sha256": "953380cfb73851eff9832cf747f3524ea1c9076d6931a6844e1640d155e28e33"
+  },
+  "build_log": {
+    "path": "builds/star_samtools_gawk__2.7.11b_1.21_5.1.0--cfg-f64181b036c1.build.log",
+    "sha256": "63175f15601ce244bd9d559482934115a92cb3cf5c377ffca74d7b07bdbdc504"
+  },
+  "git": {
+    "commit": "615e6f4b6899046c542ee9de799fdea5327422fc",
+    "commit_short": "615e6f4",
+    "branch": "wip/VersionControl",
+    "dirty_count": 2
+  }
+}
