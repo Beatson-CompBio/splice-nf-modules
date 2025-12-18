@@ -1,0 +1,262 @@
+=== splice container build ===
+date: 2025-12-18T08:48:17Z
+container_dir: /Users/siddharth/Library/CloudStorage/OneDrive-UniversityofGlasgow/Documents/Y91/SPLICE/nextflow/modules/splice-nf-modules/containers/splice/star_samtools_gawk
+image: quay.io/splice/star_samtools_gawk
+tag: 2.7.11b_1.21_5.1.0--cfg-f64181b036c1
+platform: linux/amd64
+cfg_hash: f64181b036c1
+env_yml_sha256: e386a107cd4e98a725395a18e7d8d20e79907f8cab336464121c5f99ed48c9ba
+dockerfile_sha256: 953380cfb73851eff9832cf747f3524ea1c9076d6931a6844e1640d155e28e33
+git_commit: 615e6f4b6899046c542ee9de799fdea5327422fc
+git_branch: wip/VersionControl
+git_dirty_count: 2
+==============================
+
+#0 building with "splice_builder" instance using docker-container driver
+
+#1 [internal] booting buildkit
+#1 pulling image moby/buildkit:buildx-stable-1
+#1 pulling image moby/buildkit:buildx-stable-1 5.5s done
+#1 creating container buildx_buildkit_splice_builder0
+#1 creating container buildx_buildkit_splice_builder0 0.4s done
+#1 DONE 5.9s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 373B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/mambaorg/micromamba:1.5.8
+#3 ...
+
+#4 [auth] mambaorg/micromamba:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/mambaorg/micromamba:1.5.8
+#3 DONE 2.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 199B done
+#6 DONE 0.0s
+
+#7 [1/3] FROM docker.io/mambaorg/micromamba:1.5.8@sha256:475730daef12ff9c0733e70092aeeefdf4c373a584c952dac3f7bdb739601990
+#7 resolve docker.io/mambaorg/micromamba:1.5.8@sha256:475730daef12ff9c0733e70092aeeefdf4c373a584c952dac3f7bdb739601990 done
+#7 sha256:1002294c9bed4933726f7a34c01d526e5c57a16d1ef0d5e12d144429ef7a4a2c 0B / 346B 0.2s
+#7 sha256:f14bee2f36c553c162791b50a3033087beeb8efd64c469c55b4b213655f9ce8e 0B / 683B 0.2s
+#7 sha256:514e6f58a3981e58d107f52f42ddac4b4630ad6856303762cc8687e81c6411f9 0B / 214B 0.2s
+#7 sha256:38b0c124d9b4103abdce4bfb08bc6e310b4dc3ffb27978d77350e7955ddec8b2 0B / 645B 0.2s
+#7 sha256:1002294c9bed4933726f7a34c01d526e5c57a16d1ef0d5e12d144429ef7a4a2c 346B / 346B 0.5s done
+#7 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.2s done
+#7 sha256:f14bee2f36c553c162791b50a3033087beeb8efd64c469c55b4b213655f9ce8e 683B / 683B 0.8s done
+#7 sha256:38b0c124d9b4103abdce4bfb08bc6e310b4dc3ffb27978d77350e7955ddec8b2 645B / 645B 0.8s done
+#7 sha256:5ff289cba971d27fd2ed5c6e13cd944739ec9489998da93400bccf66d7c03d91 0B / 3.78kB 0.2s
+#7 sha256:514e6f58a3981e58d107f52f42ddac4b4630ad6856303762cc8687e81c6411f9 214B / 214B 1.0s done
+#7 sha256:27dded3b689263d0fa2c4007a9a20c455f8c57d3a07dea42b747bf8fcae1fbae 0B / 283B 0.3s
+#7 sha256:8d1e1fc2982befe8a4222f190deb1dd1a465bdcd39d08e540b227dc2c78671b7 0B / 521B 0.2s
+#7 sha256:5ff289cba971d27fd2ed5c6e13cd944739ec9489998da93400bccf66d7c03d91 3.78kB / 3.78kB 0.5s done
+#7 sha256:c53a092f01542f27743b8e5eb6380a3f6c4126e1454bb229adc803c6159b236e 0B / 6.06MB 0.2s
+#7 sha256:27dded3b689263d0fa2c4007a9a20c455f8c57d3a07dea42b747bf8fcae1fbae 283B / 283B 0.5s done
+#7 sha256:8d1e1fc2982befe8a4222f190deb1dd1a465bdcd39d08e540b227dc2c78671b7 521B / 521B 0.5s done
+#7 sha256:c9a3dce55fa977c4811896aae460a280c5e10b6babb0166e7df22869d05cca09 0B / 122.68kB 0.2s
+#7 sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305 0B / 29.13MB 0.2s
+#7 sha256:c53a092f01542f27743b8e5eb6380a3f6c4126e1454bb229adc803c6159b236e 4.19MB / 6.06MB 0.8s
+#7 sha256:c9a3dce55fa977c4811896aae460a280c5e10b6babb0166e7df22869d05cca09 122.68kB / 122.68kB 0.5s done
+#7 sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305 4.19MB / 29.13MB 0.3s
+#7 sha256:c53a092f01542f27743b8e5eb6380a3f6c4126e1454bb229adc803c6159b236e 6.06MB / 6.06MB 0.8s done
+#7 sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305 11.53MB / 29.13MB 0.5s
+#7 sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305 19.92MB / 29.13MB 0.6s
+#7 sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305 29.13MB / 29.13MB 0.7s done
+#7 extracting sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305
+#7 extracting sha256:e4fff0779e6ddd22366469f08626c3ab1884b5cbe1719b26da238c95f247b305 0.3s done
+#7 DONE 2.4s
+
+#7 [1/3] FROM docker.io/mambaorg/micromamba:1.5.8@sha256:475730daef12ff9c0733e70092aeeefdf4c373a584c952dac3f7bdb739601990
+#7 extracting sha256:c9a3dce55fa977c4811896aae460a280c5e10b6babb0166e7df22869d05cca09 done
+#7 extracting sha256:c53a092f01542f27743b8e5eb6380a3f6c4126e1454bb229adc803c6159b236e 0.0s done
+#7 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 done
+#7 extracting sha256:8d1e1fc2982befe8a4222f190deb1dd1a465bdcd39d08e540b227dc2c78671b7 done
+#7 extracting sha256:27dded3b689263d0fa2c4007a9a20c455f8c57d3a07dea42b747bf8fcae1fbae done
+#7 extracting sha256:5ff289cba971d27fd2ed5c6e13cd944739ec9489998da93400bccf66d7c03d91 done
+#7 extracting sha256:514e6f58a3981e58d107f52f42ddac4b4630ad6856303762cc8687e81c6411f9 done
+#7 extracting sha256:f14bee2f36c553c162791b50a3033087beeb8efd64c469c55b4b213655f9ce8e done
+#7 extracting sha256:38b0c124d9b4103abdce4bfb08bc6e310b4dc3ffb27978d77350e7955ddec8b2 done
+#7 extracting sha256:1002294c9bed4933726f7a34c01d526e5c57a16d1ef0d5e12d144429ef7a4a2c done
+#7 DONE 2.4s
+
+#8 [2/3] COPY env.yml /tmp/env.yml
+#8 DONE 0.1s
+
+#9 [3/3] RUN micromamba create -y -n star_env -f /tmp/env.yml &&     micromamba run -n star_env which STAR samtools gawk &&     micromamba clean --all --yes
+#9 10.60 
+#9 10.60 Transaction
+#9 10.60 
+#9 10.60   Prefix: /opt/conda/envs/star_env
+#9 10.60 
+#9 10.60   Updating specs:
+#9 10.60 
+#9 10.60    - bioconda::htslib=1.21
+#9 10.60    - bioconda::samtools=1.21
+#9 10.60    - bioconda::star=2.7.11b
+#9 10.60    - conda-forge::gawk=5.1.0
+#9 10.60 
+#9 10.60 
+#9 10.60   Package                 Version  Build             Channel          Size
+#9 10.60 ────────────────────────────────────────────────────────────────────────────
+#9 10.60   Install:
+#9 10.60 ────────────────────────────────────────────────────────────────────────────
+#9 10.60 
+#9 10.60   + ca-certificates    2025.11.12  hbd8a1cb_0        conda-forge     152kB
+#9 10.60   + _libgcc_mutex             0.1  conda_forge       conda-forge       3kB
+#9 10.60   + libgomp                15.2.0  he0feb66_16       conda-forge     603kB
+#9 10.60   + _openmp_mutex             4.5  2_gnu             conda-forge      24kB
+#9 10.60   + libgcc                 15.2.0  he0feb66_16       conda-forge       1MB
+#9 10.60   + keyutils                1.6.3  hb9d3cd8_0        conda-forge     134kB
+#9 10.60   + c-ares                 1.34.6  hb03c661_0        conda-forge     208kB
+#9 10.60   + openssl                 3.6.0  h26f9b46_0        conda-forge       3MB
+#9 10.60   + liblzma                 5.8.1  hb9d3cd8_2        conda-forge     113kB
+#9 10.60   + libdeflate               1.25  h17f619e_0        conda-forge      73kB
+#9 10.60   + bzip2                   1.0.8  hda65f42_8        conda-forge     260kB
+#9 10.60   + ncurses                   6.5  h2d0b736_3        conda-forge     892kB
+#9 10.60   + libzlib                 1.3.1  hb9d3cd8_2        conda-forge      61kB
+#9 10.60   + libstdcxx              15.2.0  h934c35e_16       conda-forge       6MB
+#9 10.60   + libgcc-ng              15.2.0  h69a702a_16       conda-forge      27kB
+#9 10.60   + libedit          3.1.20250104  pl5321h7949ede_0  conda-forge     135kB
+#9 10.60   + libssh2                1.11.1  hcf80075_0        conda-forge     305kB
+#9 10.60   + zstd                    1.5.7  hb78ec9c_6        conda-forge     601kB
+#9 10.60   + libstdcxx-ng           15.2.0  hdf11a46_16       conda-forge      27kB
+#9 10.60   + libev                    4.33  hd590300_2        conda-forge     113kB
+#9 10.60   + gawk                    5.1.0  h7f98852_0        conda-forge       1MB
+#9 10.60   + krb5                   1.21.3  h659f571_0        conda-forge       1MB
+#9 10.60   + libnghttp2             1.67.0  had1ee68_0        conda-forge     667kB
+#9 10.60   + libcurl                8.17.0  h4e3cde8_1        conda-forge     459kB
+#9 10.60   + htslib                   1.21  h566b1c6_1        bioconda          3MB
+#9 10.60   + star                  2.7.11b  h5ca1c30_6        bioconda          9MB
+#9 10.60   + samtools                 1.21  h96c455f_1        bioconda        487kB
+#9 10.60 
+#9 10.60   Summary:
+#9 10.60 
+#9 10.60   Install: 27 packages
+#9 10.60 
+#9 10.60   Total download: 31MB
+#9 10.60 
+#9 10.60 ────────────────────────────────────────────────────────────────────────────
+#9 10.60 
+#9 10.60 
+#9 10.60 
+#9 10.60 Transaction starting
+#9 11.72 error    libmamba Could not set lock (Resource temporarily unavailable)
+#9 11.72 warning  libmamba Cannot lock '/opt/conda/pkgs/gawk-5.1.0-h7f98852_0.tar.bz2'
+#9 11.72     Waiting for other mamba process to finish
+#9 12.47 Linking ca-certificates-2025.11.12-hbd8a1cb_0
+#9 12.47 Linking _libgcc_mutex-0.1-conda_forge
+#9 12.47 Linking libgomp-15.2.0-he0feb66_16
+#9 12.47 Linking _openmp_mutex-4.5-2_gnu
+#9 12.48 Linking libgcc-15.2.0-he0feb66_16
+#9 12.48 Linking keyutils-1.6.3-hb9d3cd8_0
+#9 12.48 Linking c-ares-1.34.6-hb03c661_0
+#9 12.48 Linking openssl-3.6.0-h26f9b46_0
+#9 12.50 Linking liblzma-5.8.1-hb9d3cd8_2
+#9 12.51 Linking libdeflate-1.25-h17f619e_0
+#9 12.51 Linking bzip2-1.0.8-hda65f42_8
+#9 12.51 Linking ncurses-6.5-h2d0b736_3
+#9 13.72 Linking libzlib-1.3.1-hb9d3cd8_2
+#9 13.72 Linking libstdcxx-15.2.0-h934c35e_16
+#9 13.72 Linking libgcc-ng-15.2.0-h69a702a_16
+#9 13.72 Linking libedit-3.1.20250104-pl5321h7949ede_0
+#9 13.72 Linking libssh2-1.11.1-hcf80075_0
+#9 13.72 Linking zstd-1.5.7-hb78ec9c_6
+#9 13.72 Linking libstdcxx-ng-15.2.0-hdf11a46_16
+#9 13.72 Linking libev-4.33-hd590300_2
+#9 13.72 Linking gawk-5.1.0-h7f98852_0
+#9 13.73 Linking krb5-1.21.3-h659f571_0
+#9 13.74 Linking libnghttp2-1.67.0-had1ee68_0
+#9 13.74 Linking libcurl-8.17.0-h4e3cde8_1
+#9 13.74 Linking htslib-1.21-h566b1c6_1
+#9 13.76 Linking star-2.7.11b-h5ca1c30_6
+#9 13.76 Linking samtools-1.21-h96c455f_1
+#9 13.77 
+#9 13.77 Transaction finished
+#9 13.77 
+#9 13.77 To activate this environment, use:
+#9 13.77 
+#9 13.77     micromamba activate star_env
+#9 13.77 
+#9 13.77 Or to execute a single command in this environment, use:
+#9 13.77 
+#9 13.77     micromamba run -n star_env mycommand
+#9 13.77 
+#9 14.12 /opt/conda/envs/star_env/bin/STAR
+#9 14.13 /opt/conda/envs/star_env/bin/samtools
+#9 14.13 /opt/conda/envs/star_env/bin/gawk
+#9 14.18 Collect information..
+#9 14.18 Cleaning index cache..
+#9 14.20 Cleaning lock files..
+#9 14.20   Package file                                    Size
+#9 14.20 ────────────────────────────────────────────────────────
+#9 14.20   /opt/conda/pkgs
+#9 14.20 ────────────────────────────────────────────────────────
+#9 14.20 
+#9 14.20   _libgcc_mutex-0.1-conda_forge.tar.bz2            3kB
+#9 14.20   _openmp_mutex-4.5-2_gnu.tar.bz2                 24kB
+#9 14.20   bzip2-1.0.8-hda65f42_8.conda                   260kB
+#9 14.20   c-ares-1.34.6-hb03c661_0.conda                 208kB
+#9 14.20   ca-certificates-2025.11.12-hbd8a1cb_0.conda    152kB
+#9 14.20   gawk-5.1.0-h7f98852_0.tar.bz2                    1MB
+#9 14.20   htslib-1.21-h566b1c6_1.tar.bz2                   3MB
+#9 14.20   keyutils-1.6.3-hb9d3cd8_0.conda                134kB
+#9 14.20   krb5-1.21.3-h659f571_0.conda                     1MB
+#9 14.20   libcurl-8.17.0-h4e3cde8_1.conda                459kB
+#9 14.20   libdeflate-1.25-h17f619e_0.conda                73kB
+#9 14.20   libedit-3.1.20250104-pl5321h7949ede_0.conda    135kB
+#9 14.20   libev-4.33-hd590300_2.conda                    113kB
+#9 14.20   libgcc-15.2.0-he0feb66_16.conda                  1MB
+#9 14.20   libgcc-ng-15.2.0-h69a702a_16.conda              27kB
+#9 14.20   libgomp-15.2.0-he0feb66_16.conda               603kB
+#9 14.20   liblzma-5.8.1-hb9d3cd8_2.conda                 113kB
+#9 14.20   libnghttp2-1.67.0-had1ee68_0.conda             667kB
+#9 14.20   libssh2-1.11.1-hcf80075_0.conda                305kB
+#9 14.20   libstdcxx-15.2.0-h934c35e_16.conda               6MB
+#9 14.20   libstdcxx-ng-15.2.0-hdf11a46_16.conda           27kB
+#9 14.20   libzlib-1.3.1-hb9d3cd8_2.conda                  61kB
+#9 14.20   ncurses-6.5-h2d0b736_3.conda                   892kB
+#9 14.20   openssl-3.6.0-h26f9b46_0.conda                   3MB
+#9 14.20   samtools-1.21-h96c455f_1.tar.bz2               487kB
+#9 14.20   star-2.7.11b-h5ca1c30_6.tar.bz2                  9MB
+#9 14.20   zstd-1.5.7-hb78ec9c_6.conda                    601kB
+#9 14.20 
+#9 14.20   /home/mambauser/.mamba/pkgs
+#9 14.20 ────────────────────────────────────────────────────────
+#9 14.20 
+#9 14.20 
+#9 14.20   
+#9 14.20 ────────────────────────────────────────────────────────
+#9 14.20 
+#9 14.20   Total size:                                     31MB
+#9 14.20 Cleaning tarballs..
+#9 14.21 Cleaning packages..
+#9 DONE 14.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 2.5s done
+#10 exporting manifest sha256:7f08e7659ac7f24f7eca2ecc3ef21c4c37e5c4422265d4292201421af4206b7e
+#10 exporting manifest sha256:7f08e7659ac7f24f7eca2ecc3ef21c4c37e5c4422265d4292201421af4206b7e done
+#10 exporting config sha256:e91295a9e03372e43374b7c760839b5731eafa683d909043354ed967318c3318 done
+#10 exporting attestation manifest sha256:24756839c9d50552cf1a1358bf99eaecdf3748f522dd17113452159616c53771 done
+#10 exporting manifest list sha256:d43be9b5cce206adf8ce400b2b1bc95e16a8c23f11c3633c7d207b1fa4f18c15 done
+#10 pushing layers
+#10 ...
+
+#11 [auth] splice/star_samtools_gawk:pull,push token for quay.io
+#11 DONE 0.0s
+
+#10 exporting to image
+#10 pushing layers 23.1s done
+#10 pushing manifest for quay.io/splice/star_samtools_gawk:2.7.11b_1.21_5.1.0--cfg-f64181b036c1@sha256:d43be9b5cce206adf8ce400b2b1bc95e16a8c23f11c3633c7d207b1fa4f18c15
+#10 pushing manifest for quay.io/splice/star_samtools_gawk:2.7.11b_1.21_5.1.0--cfg-f64181b036c1@sha256:d43be9b5cce206adf8ce400b2b1bc95e16a8c23f11c3633c7d207b1fa4f18c15 2.5s done
+#10 DONE 28.0s
+
+View build details: docker-desktop://dashboard/build/splice_builder/splice_builder0/wkvi2tiz3zgwx7xz1hlxbo8ix
