@@ -2,7 +2,7 @@
 <tr>
   <td>
     <h1 style="margin: 0;">SPLICE-nf Modules Repository</h1>
-    <p style="font-size: 28px; max-width: 700px; text-align: justify; margin-top: 10px;">This repository contains modules used in Nextflow pipelines for the <a href="https://github.com/Beatson-CompBio/SPLICE" target="_blank">SPLICE</a> platform.<br> All modules are written in NExtflow and use containers to allow reproducibility and<br> scalability across computing environments..</p>
+    <p style="font-size: 28px; max-width: 700px; text-align: justify; margin-top: 10px;">This repository contains modules used in Nextflow pipelines for the <a href="https://github.com/Beatson-CompBio/SPLICE" target="_blank">SPLICE</a><br> platform. All modules are written in NExtflow and use containers to allow<br> reproducibility and scalability across computing environments.</p>
     <p style="font-size: 24px; max-width: 700px; text-align: justify; margin-top: 10px;">These modules break a pipeline into self-contained, reusable units with<br> well-defined inputs and outputs, making workflows easier to maintain,<br> debug, and standardize..</p>
   </td>
 
