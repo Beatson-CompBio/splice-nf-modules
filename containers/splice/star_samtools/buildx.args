@@ -1,0 +1,7 @@
+--platform=linux/amd64
+--pull=true
+--provenance=false
+--sbom=false
+--label=org.opencontainers.image.title=STAR toolchain
+--label=org.opencontainers.image.description=STAR 2.7.11b + samtools 1.21 + htslib 1.21 + gawk 5.1.0 for SPLICE Nextflow modules
+--label=org.opencontainers.image.licenses=MIT

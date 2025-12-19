@@ -1,0 +1,24 @@
+{
+  "image": "quay.io/splice/star_samtools",
+  "mode": "push",
+  "tag": "2.7.11b_1.21--cfg-2be3a11e4107",
+  "tag_base": "2.7.11b_1.21--cfg-2be3a11e4107",
+  "cfg_hash": "2be3a11e4107",
+  "tool_list": "star,samtools",
+  "tools": { "star": "2.7.11b","samtools": "1.21" },
+  "inputs": {
+    "environment_yaml_sha256": "e386a107cd4e98a725395a18e7d8d20e79907f8cab336464121c5f99ed48c9ba",
+    "dockerfile_sha256": "0989adb50118a9c659db6e6179603c65a66596ab839d1b447d86154b2f67524f",
+    "buildx_args_sha256": "0b8537ae4db68efb980f14799308c816d44b9e3654e579ef5d5d60eea531cea2"
+  },
+  "build_log": {
+    "path": "builds/star_samtools__2.7.11b_1.21--cfg-2be3a11e4107.build.log",
+    "sha256": "31616120df39ee8e1ac657f9714a5c146b20cf615a6f439db5fa0950aa68e51b"
+  },
+  "git": {
+    "commit": "d4ce2cbf07ddd423f8b48ec789077b2e4ac10cf5",
+    "commit_short": "d4ce2cb",
+    "branch": "wip/VersionControl",
+    "dirty_count": 3
+  }
+}
