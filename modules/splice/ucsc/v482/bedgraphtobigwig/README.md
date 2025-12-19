@@ -1,0 +1,51 @@
+# ucsc_bedgraphtobigwig
+
+## Description
+Convert a bedGraph file to bigWig format.
+
+## Keywords
+bedgraph, bigwig, ucsc, bedgraphtobigwig, converter
+
+## Tool
+- **ucsc**
+  - description: Convert a bedGraph file to bigWig format.
+  - homepage: http://hgdownload.cse.ucsc.edu/admin/exe/
+  - documentation: https://genome.ucsc.edu/goldenPath/help/bigWig.html
+  - licence: varies; see http://genome.ucsc.edu/license
+
+## Inputs
+_Not specified._
+
+## Outputs
+- **bigwig**
+- **versions**
+
+## Usage
+This directory contains a Nextflow module.
+
+- Module script: `main.nf`
+- Metadata: `meta.yml`
+- Tests: `tests/`
+
+Import and call the module from a Nextflow workflow using your usual module include pattern.
+
+## Task extensions
+This module may support per invocation options via `task.ext.*`.
+
+If you extend this module, document new `task.ext.*` keys here in the README.
+
+## Provenance
+- repository: https://github.com/ucscGenomeBrowser/kent
+- module_source: nf-core/modules
+- original_authors: @drpatelh
+
+This module was originally developed in the nf-core ecosystem and
+has been adapted and versioned for the splice-nf-modules repository.
+
+## Contacts
+- authors: @drpatelh, @HR-cruk
+- maintainers: @HR-cruk, @siddharthjayaraman
+
+---
+
+This README is generated from `meta.yml`. If you need to update it, edit `meta.yml` and rerun the generator.

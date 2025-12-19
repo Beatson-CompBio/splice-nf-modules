@@ -1,0 +1,7 @@
+--platform=linux/amd64
+--pull=true
+--provenance=false
+--sbom=false
+--label=org.opencontainers.image.title=bedtools genomecov toolchain
+--label=org.opencontainers.image.description=bedtools 2.31.1 + coreutils 9.5 for SPLICE Nextflow modules
+--label=org.opencontainers.image.licenses=MIT
