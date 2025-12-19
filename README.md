@@ -1,4 +1,23 @@
-# splice-nf-modules
+<table>
+<tr>
+  <td>
+    <h1 style="margin: 0;">SPLICE-nf Modules Repository</h1>
+    <p style="font-size: 28px; max-width: 700px; text-align: justify; margin-top: 10px;">This repository contains modules for Nextflow pipelines developed for the<br> <a href="https://github.com/Beatson-CompBio/SPLICE" target="_blank">SPLICE</a> platform. All modules are based on nf-core standards and leverage<br> containers to ensure reproducibility and scalability across environments.</p>
+    <p style="font-size: 24px; max-width: 700px; text-align: justify; margin-top: 10px;">The modules divide a pipeline into self-contained, reusable units with clearly<br> defined inputs and outputs, simplifying workflow maintenance, debugging,<br> and standardization.</p>
+  </td>
+
+  <!-- Logo on the right -->
+  <td align="right">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="assets/splice_logo_acronym_black.png", height=200, width=200>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/splice_logo_acronym_white.png", height=200,width=200>
+    <img alt="Shows a black logo in light color mode and a white one in dark color mode." src="assets/splice_logo_acronym_white.png">
+  </picture>
+  </td>
+</tr>
+</table>
+
+# Introduction
 ![nf-test](https://github.com/Beatson-CompBio/splice-nf-modules/actions/workflows/nf-test.yml/badge.svg)
 
 Shared **SPLICE** modules for Nextflow DSL2 pipelines (CRUK Scotland Institute namespace: `cruksi`).

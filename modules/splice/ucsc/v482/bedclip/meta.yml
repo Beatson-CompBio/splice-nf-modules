@@ -1,16 +1,21 @@
-name: ucsc_bedgraphtobigwig
-description: Convert a bedGraph file to bigWig format.
+name: ucsc_bedclip
+origin:
+  repository: "https://github.com/ucscGenomeBrowser/kent"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@drpatelh"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
+description: Remove lines from bed file that refer to off-chromosome locations.
 keywords:
-  - bedgraph
-  - bigwig
+  - bed
+  - genomics
   - ucsc
-  - bedgraphtobigwig
-  - converter
 tools:
   - ucsc:
-      description: Convert a bedGraph file to bigWig format.
+      description: Remove lines from bed file that refer to off-chromosome locations.
       homepage: http://hgdownload.cse.ucsc.edu/admin/exe/
-      documentation: https://genome.ucsc.edu/goldenPath/help/bigWig.html
       licence: ["varies; see http://genome.ucsc.edu/license"]
       identifier: ""
 input:
@@ -22,22 +27,21 @@ input:
     - bedgraph:
         type: file
         description: bedGraph file
-        pattern: "*.{bedGraph}"
+        pattern: "*.{bedgraph}"
   - - sizes:
         type: file
-        description: chromosome sizes file
-        pattern: "*.{sizes}"
+        description: Chromosome sizes file
 output:
-  - bigwig:
+  - bedgraph:
       - meta:
           type: map
           description: |
             Groovy Map containing sample information
             e.g. [ id:'test', single_end:false ]
-      - "*.bigWig":
+      - "*.bedGraph":
           type: file
-          description: bigWig file
-          pattern: "*.{bigWig}"
+          description: bedGraph file
+          pattern: "*.{bedgraph}"
   - versions:
       - versions.yml:
           type: file
@@ -45,5 +49,7 @@ output:
           pattern: "versions.yml"
 authors:
   - "@drpatelh"
+  - "@HR-cruk"
 maintainers:
-  - "@drpatelh"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"

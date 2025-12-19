@@ -13,10 +13,10 @@ fi
 
 UPDATE_FLAG=""
 if [[ "$UPDATE" == "true" ]]; then
-  UPDATE="--update-snapshot"
-else
-  UPDATE=""
-fi  
+  UPDATE_FLAG="--update-snapshot"
+fi
+
+echo "Running: nf-test test "$TEST_FILE" --profile "$PROFILE" "$VERBOSE_FLAG" "$UPDATE_FLAG""
 
 nf-test test "$TEST_FILE" --profile "$PROFILE" $VERBOSE_FLAG $UPDATE_FLAG
   

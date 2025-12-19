@@ -4,8 +4,8 @@ process BEDTOOLS_GENOMECOV {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine in ['apptainer','singularity'] && !task.ext.singularity_pull_docker_container ?
-        'quay.io/splice/bedtools_coreutils:2.31.1_9.5--6f6f340c64296d75' :
-        'quay.io/splice/bedtools_coreutils:2.31.1_9.5--6f6f340c64296d75' }"
+        'quay.io/splice/bedtools_coreutils:2.31.1_9.5--cfg-8492f6e28a12' :
+        'quay.io/splice/bedtools_coreutils:2.31.1_9.5--cfg-8492f6e28a12' }"
 
     input:
     tuple val(meta), path(intervals), val(scale)

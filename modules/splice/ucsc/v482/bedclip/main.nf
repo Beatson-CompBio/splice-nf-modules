@@ -4,9 +4,9 @@ process UCSC_BEDCLIP {
 
     // WARN: Version information not provided by tool on CLI. Please update version string below when bumping container versions.
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/ucsc-bedclip:377--h0b8a92a_2' :
-        'biocontainers/ucsc-bedclip:377--h0b8a92a_2' }"
+    container "${ workflow.containerEngine in ['apptainer','singularity'] && !task.ext.singularity_pull_docker_container ?
+        'https://depot.galaxyproject.org/singularity/ucsc-bedclip:482--h0b57e2e_0' :
+        'quay.io/biocontainers/ucsc-bedclip:482--h0b57e2e_0' }"
 
     input:
     tuple val(meta), path(bedgraph)
@@ -22,7 +22,7 @@ process UCSC_BEDCLIP {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '377' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '482' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     bedClip \\
         $bedgraph \\
@@ -37,7 +37,7 @@ process UCSC_BEDCLIP {
 
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def VERSION = '377' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
+    def VERSION = '482' // WARN: Version information not provided by tool on CLI. Please update this string when bumping container versions.
     """
     touch ${prefix}.bedGraph
 
