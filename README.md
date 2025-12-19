@@ -2,8 +2,8 @@
 <tr>
   <td>
     <h1 style="margin: 0;">SPLICE-nf Modules Repository</h1>
-    <p style="font-size: 28px; max-width: 700px; text-align: justify; margin-top: 10px;">This pipeline provides a workflow for bulk RNA sequencing analysis,<br> from raw FASTQ files to quality-controlled expression matrices<br> and downstream analysis-ready outputs. It is designed for reproducibility<br> and scalability across computing environments.</p>
-    <p style="font-size: 24px; max-width: 700px; text-align: justify; margin-top: 10px;">The pipeline integrates best practices for RNASeq processing, including<br> alignment, quantification, normalization, and exploratory data analysis,<br> with clear logging and reporting at every step.</p>
+    <p style="font-size: 28px; max-width: 700px; text-align: justify; margin-top: 10px;">This repository contains modules used in Nextflow pipelines for the <a href="https://github.com/Beatson-CompBio/SPLICE" target="_blank">SPLICE</a> platform.<br> All modules are written in NExtflow and use containers to allow reproducibility and<br> scalability across computing environments..</p>
+    <p style="font-size: 24px; max-width: 700px; text-align: justify; margin-top: 10px;">These modules break a pipeline into self-contained, reusable units with<br> well-defined inputs and outputs, making workflows easier to maintain,<br> debug, and standardize..</p>
   </td>
 
   <!-- Logo on the right -->
