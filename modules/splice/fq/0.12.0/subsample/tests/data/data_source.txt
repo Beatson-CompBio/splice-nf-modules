@@ -1,0 +1,2 @@
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/sarscov2/illumina/fastq/test_1.fastq.gz, test_1.fastq.gz
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/sarscov2/illumina/fastq/test_2.fastq.gz, test_2.fastq.gz

@@ -1,0 +1,68 @@
+{
+    "stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.bigWig:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,1a2d03941881388aaf13af072b571152"
+                ],
+                "bigwig": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.bigWig:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,1a2d03941881388aaf13af072b571152"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2025-12-19T15:52:05.313013188"
+    },
+    "Should run without failures": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.bigWig:md5,910ecc7f57e3bbd5fac5a8edba4f615d"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,1a2d03941881388aaf13af072b571152"
+                ],
+                "bigwig": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.bigWig:md5,910ecc7f57e3bbd5fac5a8edba4f615d"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,1a2d03941881388aaf13af072b571152"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2025-12-19T15:51:59.211906623"
+    }
+}

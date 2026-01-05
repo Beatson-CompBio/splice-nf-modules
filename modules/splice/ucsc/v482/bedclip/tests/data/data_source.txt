@@ -1,0 +1,2 @@
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/sarscov2/genome/genome.sizes, genome.sizes
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/sarscov2/illumina/bedgraph/test.bedgraph, test.bedgraph

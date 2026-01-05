@@ -1,0 +1,2 @@
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/homo_sapiens/genome/genome.fasta, genome.fasta
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/sarscov2/genome/transcriptome.fasta, transcriptome.fasta

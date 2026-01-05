@@ -1,0 +1,314 @@
+nextflow_process {
+
+    name "Test Process SALMON_QUANT"
+    script "../main.nf"
+    process "SALMON_QUANT"
+    config "./nextflow.config"
+
+    setup {
+        run("SETUP_SALMON_INDEX") {
+            script "./setup_index.nf"
+            process {
+                """
+                input[0] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                """
+            }
+        }
+    }
+
+    test("sarscov2 - single_end") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end: true ], // meta map
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = ''
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - single_end stub") {
+        options "-stub"
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end: true ], // meta map
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = ''
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - single_end lib type A") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end: true ], // meta map
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = 'A'
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - single_end lib type A stub") {
+        options "-stub"
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end: true ], // meta map
+                    [ file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true) ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = 'A'
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - pair_end") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end: true ], // meta map
+                    [
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true)
+                    ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = ''
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - pair_end stub") {
+        options "-stub"
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end: true ], // meta map
+                    [
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true)
+                    ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = ''
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - pair_end multiple") {
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end:false ], // meta map
+                    [
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_2.fastq.gz", checkIfExists: true)
+                    ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = ''
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+
+    test("sarscov2 - pair_end multiple stub") {
+        options "-stub"
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end:false ], // meta map
+                    [
+                        file("${moduleTestDir}/data/test_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test_2.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_1.fastq.gz", checkIfExists: true),
+                        file("${moduleTestDir}/data/test2_2.fastq.gz", checkIfExists: true)
+                    ]
+                ])
+                input[1] = SETUP_SALMON_INDEX.out.index_dir
+                input[2] = Channel.of([file("${moduleTestDir}/data/genome.gtf", checkIfExists: true)])
+                input[3] = Channel.of([file("${moduleTestDir}/data/transcriptome.fasta", checkIfExists: true)])
+                input[4] = false
+                input[5] = ''
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert path(process.out.json_info.get(0).get(1)).exists() },
+                { assert path(process.out.results.get(0).get(1)).exists() },
+                { assert snapshot(
+                    process.out.versions,
+                    process.out.lib_format_counts
+                ).match() }
+            )
+        }
+
+    }
+}

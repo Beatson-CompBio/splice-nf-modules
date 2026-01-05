@@ -1,0 +1,24 @@
+{
+  "image": "quay.io/splice/bedtools_coreutils",
+  "mode": "push",
+  "tag": "2.31.1_9.5--cfg-8492f6e28a12",
+  "tag_base": "2.31.1_9.5--cfg-8492f6e28a12",
+  "cfg_hash": "8492f6e28a12",
+  "tool_list": "bedtools,coreutils",
+  "tools": { "bedtools": "2.31.1","coreutils": "9.5" },
+  "inputs": {
+    "environment_yaml_sha256": "043294af62657a065ff41231739699c193ccb5164cd4477ac2514f24b63f2ccd",
+    "dockerfile_sha256": "6d0cda57b628d60f94f02941304b3003050cb33b28727b06437bb0b8f3ed9666",
+    "buildx_args_sha256": "637bf405aae6fa05dc45c085c545095b03b4a242d96342e8e6104352b9d1886f"
+  },
+  "build_log": {
+    "path": "builds/bedtools_coreutils__2.31.1_9.5--cfg-8492f6e28a12.build.log",
+    "sha256": "35ce66ac015d90b292b3172830acfe93e52e4444bef923d07b2a9746de6ca239"
+  },
+  "git": {
+    "commit": "bb918be70c395166f8500d62ec904ad76bc435de",
+    "commit_short": "bb918be",
+    "branch": "wip/HRVersionControl",
+    "dirty_count": 2
+  }
+}

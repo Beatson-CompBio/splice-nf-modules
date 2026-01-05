@@ -1,33 +1,151 @@
-# .github/workflows/nf-test.yml
 name: nf-test
+
 on:
-  push: { branches: [main] }
+  push:
+    branches:
+      - main
+      - "feature/**"
+      - "wip/**"
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: nf-test-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NXF_ANSI_LOG: false
+  NXF_VER: "25.10.2"
+  NXF_HOME: ${{ github.workspace }}/.nextflow
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
+
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-
-      # Installs nf-test on the runner (pick a version or omit for latest)
-      - uses: nf-core/setup-nf-test@v1
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          nf-test-version: v0.9.3   # or leave blank for latest
+          fetch-depth: 0
 
-      # Nextflow (nf-test needs it)
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
       - name: Install Nextflow
         run: |
           curl -s https://get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/nextflow
           nextflow -version
 
-      # Run either all tests, or only those touched in this PR
-      - name: Run nf-test (changed files only)
-        if: github.event_name == 'pull_request'
-        run: nf-test test --changes-since origin/${{ github.base_ref }}
+      - name: Setup nf-test
+        uses: nf-core/setup-nf-test@v1
+        with:
+          nf-test-version: v0.9.3
 
-      - name: Run nf-test (full)
-        if: github.event_name != 'pull_request'
-        run: nf-test test
+      - name: Cache Nextflow assets and nf-test workdir
+        uses: actions/cache@v4
+        with:
+          path: |
+            .nextflow
+            .nf-test
+          key: ${{ runner.os }}-nf-test-${{ hashFiles('nf-test.config', 'nextflow.test.config', '**/*.nf', '**/*.config', '**/*.test', '**/*.snap', '**/*.yml', '**/*.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-nf-test-
+
+      - name: Fetch refs (needed for base selection)
+        run: |
+          git fetch --no-tags --prune origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: Decide nf-test mode + base ref
+        id: mode
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # PRs: compare against PR base branch
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "mode=pr" >> "$GITHUB_OUTPUT"
+            echo "base_ref=origin/${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          ref="${GITHUB_REF#refs/heads/}"
+
+          # main + feature/*: run full suite
+          if [[ "$ref" == "main" || "$ref" == feature/* ]]; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # wip/*: run changed tests vs best matching origin/feature/*
+          if [[ "$ref" == wip/* ]]; then
+            best=""
+            best_score=""
+
+            # Pick the feature branch with the smallest "behind" distance from merge-base.
+            # This usually corresponds to "the feature branch this wip diverged from".
+            for fb in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin/feature/* 2>/dev/null || true); do
+              mb="$(git merge-base HEAD "$fb" || true)"
+              [[ -z "$mb" ]] && continue
+
+              behind="$(git rev-list --count "${mb}..${fb}" || echo 999999)"
+              ahead="$(git rev-list --count "${mb}..HEAD" || echo 999999)"
+
+              # score: prefer smallest behind, then smallest ahead
+              score="$(printf "%09d-%09d" "$behind" "$ahead")"
+
+              if [[ -z "$best_score" || "$score" < "$best_score" ]]; then
+                best_score="$score"
+                best="$fb"
+              fi
+            done
+
+            if [[ -n "$best" ]]; then
+              echo "mode=changed" >> "$GITHUB_OUTPUT"
+              echo "base_ref=${best}" >> "$GITHUB_OUTPUT"
+              echo "Selected base_ref for wip: ${best} (score ${best_score})"
+            else
+              # Safe fallback
+              echo "mode=changed" >> "$GITHUB_OUTPUT"
+              echo "base_ref=origin/main" >> "$GITHUB_OUTPUT"
+              echo "No origin/feature/* branches found. Falling back to origin/main."
+            fi
+
+            exit 0
+          fi
+
+          # Fallback: changed vs main
+          echo "mode=changed" >> "$GITHUB_OUTPUT"
+          echo "base_ref=origin/main" >> "$GITHUB_OUTPUT"
+
+      - name: Run nf-test (PR changes only, docker profile)
+        if: steps.mode.outputs.mode == 'pr'
+        run: |
+          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" 
+
+      - name: Run nf-test (changed since base, docker profile)
+        if: steps.mode.outputs.mode == 'changed'
+        run: |
+          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" 
+
+      - name: Run nf-test (full suite, docker profile)
+        if: steps.mode.outputs.mode == 'full'
+        run: |
+          nf-test test --profile docker 
+
+      - name: Debug STAR_ALIGN failure (tail nextflow.log)
+        if: failure()
+        run: |
+          echo "=== List nf-test runs ==="
+          ls -lah .nf-test/tests || true
+          echo "=== Find STAR_ALIGN nextflow logs ==="
+          find .nf-test/tests -maxdepth 4 -type f -name nextflow.log -print || true
+          echo "=== Tail all nextflow.log files (last 200 lines) ==="
+          for f in $(find .nf-test/tests -maxdepth 4 -type f -name nextflow.log); do
+            echo "----- $f -----"
+            tail -n 200 "$f" || true
+          done   
