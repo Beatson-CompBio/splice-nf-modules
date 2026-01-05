@@ -3,9 +3,9 @@ process STAR_GENOMEGENERATE {
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:59cdd445419f14abac76b31dd0d71217994cbcc9-0' :
-        'biocontainers/mulled-v2-1fa26d1ce03c295fe2fdcf85831a92fbcbd7e8c2:59cdd445419f14abac76b31dd0d71217994cbcc9-0' }"
+    container "${ (workflow.containerEngine in ['singularity','apptainer']) && !task.ext.singularity_pull_docker_container ?
+        'quay.io/splice/star_samtools:2.7.11b_1.21--cfg-7015ef834067' :
+        'quay.io/splice/star_samtools:2.7.11b_1.21--cfg-7015ef834067' }"
 
     input:
     tuple val(meta), path(fasta)

@@ -3,7 +3,7 @@ process STAR_ALIGN {
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    container "${ (workflow.containerEngine in ['singularity','apptainer']) && !task.ext.singularity_pull_docker_container ?
         'quay.io/splice/star_samtools:2.7.11b_1.21--cfg-7015ef834067' :
         'quay.io/splice/star_samtools:2.7.11b_1.21--cfg-7015ef834067' }"
 

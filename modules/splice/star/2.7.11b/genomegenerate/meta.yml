@@ -1,4 +1,13 @@
 name: star_genomegenerate
+origin:
+  repository: "https://github.com/alexdobin/STAR"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@kevinmenden"
+    - "@drpatelh"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.   
 description: Create index for STAR
 keywords:
   - index
@@ -49,8 +58,10 @@ output:
           description: File containing software versions
           pattern: "versions.yml"
 authors:
+  - "@siddhathjayaraman"
   - "@kevinmenden"
   - "@drpatelh"
 maintainers:
+  - "@siddhathjayaraman"
   - "@kevinmenden"
   - "@drpatelh"
