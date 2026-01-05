@@ -5,3 +5,8 @@
 *.bak
 work/
 results/
+# Nextflow / nf-test
+.nextflow/
+.nf-test/
+.nf-test-*.nf
+.nf-test.log
