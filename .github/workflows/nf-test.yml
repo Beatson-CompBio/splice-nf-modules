@@ -60,29 +60,6 @@ jobs:
         run: |
           git fetch --no-tags --prune origin +refs/heads/*:refs/remotes/origin/*
 
-      - name: Create CI Nextflow config (force container UID/GID on runner)
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          uid="$(id -u)"
-          gid="$(id -g)"
-
-          cat > "$GITHUB_WORKSPACE/ci.nextflow.config" <<EOF
-          docker {
-            enabled = true
-            fixOwnership = true
-            runOptions = "-u ${uid}:${gid}"
-          }
-          EOF
-
-          echo "CI_NEXTFLOW_CONFIG=$GITHUB_WORKSPACE/ci.nextflow.config" >> "$GITHUB_ENV"
-
-          echo "Runner identity:"
-          id
-          echo "ci.nextflow.config:"
-          cat "$GITHUB_WORKSPACE/ci.nextflow.config"
-
       - name: Decide nf-test mode + base ref
         id: mode
         shell: bash
@@ -148,17 +125,17 @@ jobs:
       - name: Run nf-test (PR changes only, docker profile)
         if: steps.mode.outputs.mode == 'pr'
         run: |
-          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" --config ci.nextflow.config
+          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" 
 
       - name: Run nf-test (changed since base, docker profile)
         if: steps.mode.outputs.mode == 'changed'
         run: |
-          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" --config ci.nextflow.config
+          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" 
 
       - name: Run nf-test (full suite, docker profile)
         if: steps.mode.outputs.mode == 'full'
         run: |
-          nf-test test --profile docker --config ci.nextflow.config
+          nf-test test --profile docker 
 
       - name: Debug STAR_ALIGN failure (tail nextflow.log)
         if: failure()
