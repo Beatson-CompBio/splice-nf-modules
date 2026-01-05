@@ -136,3 +136,16 @@ jobs:
         if: steps.mode.outputs.mode == 'full'
         run: |
           nf-test test --profile docker
+
+      - name: Debug STAR_ALIGN failure (tail nextflow.log)
+        if: failure()
+        run: |
+          echo "=== List nf-test runs ==="
+          ls -lah .nf-test/tests || true
+          echo "=== Find STAR_ALIGN nextflow logs ==="
+          find .nf-test/tests -maxdepth 4 -type f -name nextflow.log -print || true
+          echo "=== Tail all nextflow.log files (last 200 lines) ==="
+          for f in $(find .nf-test/tests -maxdepth 4 -type f -name nextflow.log); do
+            echo "----- $f -----"
+            tail -n 200 "$f" || true
+          done   
