@@ -145,27 +145,20 @@ jobs:
           echo "mode=changed" >> "$GITHUB_OUTPUT"
           echo "base_ref=origin/main" >> "$GITHUB_OUTPUT"
 
-      - name: Set nf-test Nextflow opts (inject ci.nextflow.config)
-        shell: bash
-        run: |
-          set -euo pipefail
-          echo "NFTEST_OPTS=--config $CI_NEXTFLOW_CONFIG" >> "$GITHUB_ENV"
-          echo "NFTEST_OPTS is: $NFTEST_OPTS"
-
       - name: Run nf-test (PR changes only, docker profile)
         if: steps.mode.outputs.mode == 'pr'
         run: |
-          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}"
+          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" --config ci.nextflow.config
 
       - name: Run nf-test (changed since base, docker profile)
         if: steps.mode.outputs.mode == 'changed'
         run: |
-          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}"
+          nf-test test --profile docker --changed-since "${{ steps.mode.outputs.base_ref }}" --config ci.nextflow.config
 
       - name: Run nf-test (full suite, docker profile)
         if: steps.mode.outputs.mode == 'full'
         run: |
-          nf-test test --profile docker
+          nf-test test --profile docker --config ci.nextflow.config
 
       - name: Debug STAR_ALIGN failure (tail nextflow.log)
         if: failure()
