@@ -1,0 +1,101 @@
+{
+    "saccharomyces_cerevisiae - gtf": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.tx2gene.tsv:md5,0e2418a69d2eba45097ebffc2f700bfe"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,0220b33566f8ccd37684dc878946a57e"
+                ],
+                "tx2gene": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.tx2gene.tsv:md5,0e2418a69d2eba45097ebffc2f700bfe"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,0220b33566f8ccd37684dc878946a57e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-22T13:29:29.197746265"
+    },
+    "saccharomyces_cerevisiae - gtf - multiple extra attributes": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.tx2gene.tsv:md5,97223927dc2e0dae6c38bad96aaa6f49"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,0220b33566f8ccd37684dc878946a57e"
+                ],
+                "tx2gene": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.tx2gene.tsv:md5,97223927dc2e0dae6c38bad96aaa6f49"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,0220b33566f8ccd37684dc878946a57e"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-22T13:30:05.332625166"
+    },
+    "saccharomyces_cerevisiae - gtf - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.tx2gene.tsv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,19bbe2e743847ca3f7133f49ae335fab"
+                ],
+                "tx2gene": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.tx2gene.tsv:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,19bbe2e743847ca3f7133f49ae335fab"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-22T13:30:46.835417007"
+    }
+}

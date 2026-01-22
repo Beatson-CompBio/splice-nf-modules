@@ -1,0 +1,70 @@
+nextflow_process {
+
+    name "Test Process CUSTOM_CATADDITIONALFASTA"
+    script "../main.nf"
+    process "CUSTOM_CATADDITIONALFASTA"
+
+
+    test("sarscov2 - fastq - gtf") {
+
+        when {
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end:false ],
+                    file("${moduleTestDir}" + '/data/genome.fasta', checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/genome.gtf', checkIfExists: true)
+                ])
+                input[1] = Channel.of([
+                    [ id:'test', single_end:false ],
+                    file("${moduleTestDir}" + '/data/transcriptome.fasta', checkIfExists: true)
+                ])
+                input[2] = 'test_biotype'
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(
+                    process.out.fasta,
+                    process.out.gtf,
+                    process.out.versions
+                ).match() }
+            )
+        }
+    }
+
+    test("sarscov2 - fastq - gtf - stub") {
+
+        options "-stub"
+
+        when {
+            params {
+                outdir = "$outputDir"
+            }
+            process {
+                """
+                input[0] = Channel.of([
+                    [ id:'test', single_end:false ],
+                    file("${moduleTestDir}" + '/data/genome.fasta', checkIfExists: true),
+                    file("${moduleTestDir}" + '/data/genome.gtf', checkIfExists: true)
+                ])
+                input[1] = Channel.of([
+                    [ id:'test', single_end:false ],
+                    file("${moduleTestDir}" + '/data/transcriptome.fasta', checkIfExists: true)
+                ])
+                input[2] = 'test_biotype'
+                """
+            }
+        }
+
+        then {
+            assertAll(
+            { assert process.success },
+            { assert snapshot(process.out).match() }
+            )
+        }
+    }
+}
