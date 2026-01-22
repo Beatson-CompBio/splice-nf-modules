@@ -1,4 +1,12 @@
 name: gunzip
+origin:
+  repository: "https://github.com/coreutils/coreutils"
+  module_source: "nf-core/modules/gunzip"
+  original_authors:
+    - "@joseespinosa"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Compresses and decompresses files.
 keywords:
   - gunzip
@@ -38,10 +46,7 @@ output:
           pattern: "versions.yml"
 authors:
   - "@joseespinosa"
-  - "@drpatelh"
-  - "@jfy133"
+  - "@HR-cruk"
 maintainers:
-  - "@joseespinosa"
-  - "@drpatelh"
-  - "@jfy133"
-  - "@gallvp"
+  - "@siddharthjayaraman"
+  - "@HR-cruk"
