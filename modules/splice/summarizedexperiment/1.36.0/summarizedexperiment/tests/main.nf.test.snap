@@ -1,0 +1,218 @@
+{
+    "gene_log_multi_matrix_rowdata_coldataa_stub": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.R_sessionInfo.log:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.3"
+        },
+        "timestamp": "2024-07-11T16:41:31.796715"
+    },
+    "versions_multi_matrix_rowdata_coldata_unify": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T09:54:09.771237073"
+    },
+    "gene_log_single_matrix_stub": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.R_sessionInfo.log:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.3"
+        },
+        "timestamp": "2024-07-11T16:42:47.12955"
+    },
+    "versions_single_matrix": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:43:09.708790615"
+    },
+    "gene_log_multi_matrix_rowdata_stub": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.R_sessionInfo.log:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.3"
+        },
+        "timestamp": "2024-07-11T16:41:54.028064"
+    },
+    "gene_log_multi_matrix_rowdata": {
+        "content": "0c360c6c1b81875222e0c478d0d347c7",
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:40:41.918967957"
+    },
+    "versions_multi_matrix_rowdata_stub": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:45:35.677398925"
+    },
+    "versions_multi_matrix_stub": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:46:53.755294408"
+    },
+    "gene_log_multi_matrix_rowdata_coldata_unify": {
+        "content": "0c360c6c1b81875222e0c478d0d347c7",
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T09:54:09.703088768"
+    },
+    "versions_multi_matrix_rowdata_coldata_stub": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:44:19.652968579"
+    },
+    "gene_log_multi_matrix": {
+        "content": "0c360c6c1b81875222e0c478d0d347c7",
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:42:03.111427939"
+    },
+    "gene_log_multi_matrix_stub": {
+        "content": [
+            [
+                [
+                    {
+                        "id": "test"
+                    },
+                    "test.R_sessionInfo.log:md5,d41d8cd98f00b204e9800998ecf8427e"
+                ]
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.8.4",
+            "nextflow": "24.04.3"
+        },
+        "timestamp": "2024-07-11T16:42:21.370562"
+    },
+    "gene_log_single_matrix": {
+        "content": "0c360c6c1b81875222e0c478d0d347c7",
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:43:09.669952055"
+    },
+    "versions_single_matrix_stub": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:48:11.958508246"
+    },
+    "versions_multi_matrix_rowdata": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:40:42.028867568"
+    },
+    "gene_log_multi_matrix_rowdata_coldata": {
+        "content": "0c360c6c1b81875222e0c478d0d347c7",
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T09:55:58.993803803"
+    },
+    "versions_multi_matrix": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T14:42:03.172034747"
+    },
+    "versions_multi_matrix_rowdata_coldata": {
+        "content": [
+            [
+                "versions.yml:md5,9743d92fb7ea29cf30d6252c224788bb"
+            ]
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-26T09:55:59.077139622"
+    }
+}
