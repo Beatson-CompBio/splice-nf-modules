@@ -1,4 +1,14 @@
 name: custom_getchromsizes
+origin:
+  repository: "http://www.htslib.org/"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@tamara-hodgetts"
+    - "@chris-cheshire"
+    - "@muffato"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Generates a FASTA file of chromosome sizes and a fasta index file
 keywords:
   - fasta
@@ -69,7 +79,7 @@ authors:
   - "@tamara-hodgetts"
   - "@chris-cheshire"
   - "@muffato"
+  - "@HR-cruk"
 maintainers:
-  - "@tamara-hodgetts"
-  - "@chris-cheshire"
-  - "@muffato"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"

@@ -1,31 +1,26 @@
-# fastqc
+# summarizedexperiment_summarizedexperiment
 
 ## Description
-Run FastQC on sequenced reads
+SummarizedExperiment container
 
 ## Keywords
-quality control, qc, adapters, fastq
+gene, transcript, sample, matrix, assay
 
 ## Tool
-- **fastqc**
-  - description: FastQC gives general quality metrics about your reads.
-It provides information about the quality score distribution
-across your reads, the per base sequence content (%A/C/G/T).
-
-You get information about adapter contamination and other
-overrepresented sequences.
-
-  - homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-  - documentation: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
-  - licence: GPL-2.0-only
-  - identifier: biotools:fastqc
+- **summarizedexperiment**
+  - description: The SummarizedExperiment container contains one or more assays, each represented by a matrix-like object of numeric or other mode. The rows typically represent genomic ranges of interest and the columns represent samples.
+  - homepage: https://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html
+  - documentation: https://bioconductor.org/packages/release/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html
+  - tool_dev_url: https://github.com/Bioconductor/SummarizedExperiment
+  - licence: Artistic-2.0
+  - identifier: biotools:summarizedexperiment
 
 ## Inputs
 _Not specified._
 
 ## Outputs
-- **html**
-- **zip**
+- **rds**
+- **log**
 - **versions**
   - versions.yml
     - pattern: versions.yml
@@ -46,15 +41,15 @@ This module may support per invocation options via `task.ext.*`.
 If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
-- repository: https://www.github.com/s-andrews/FastQC
+- repository: https://github.com/arq5x/bedtools2
 - module_source: nf-core/modules
-- original_authors: @drpatelh, @grst, @ewels, @FelixKrueger
+- original_authors: @pinin4fjords
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @drpatelh, @grst, @ewels, @FelixKrueger, @HR-cruk
+- authors: @pinin4fjords, @HR-cruk
 - maintainers: @HR-cruk, @siddharthjayaraman
 
 ---

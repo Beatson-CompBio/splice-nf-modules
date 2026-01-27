@@ -1,31 +1,25 @@
-# fastqc
+# custom_catadditionalfasta
 
 ## Description
-Run FastQC on sequenced reads
+Custom module to Add a new fasta file to an old one and update an associated GTF
 
 ## Keywords
-quality control, qc, adapters, fastq
+fasta, gtf, genomics
 
 ## Tool
-- **fastqc**
-  - description: FastQC gives general quality metrics about your reads.
-It provides information about the quality score distribution
-across your reads, the per base sequence content (%A/C/G/T).
-
-You get information about adapter contamination and other
-overrepresented sequences.
-
-  - homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-  - documentation: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
-  - licence: GPL-2.0-only
-  - identifier: biotools:fastqc
+- **custom**
+  - description: Custom module to Add a new fasta file to an old one and update an associated GTF
+  - tool_dev_url: https://github.com/nf-core/modules/blob/master/modules/nf-core/custom/catadditionalfasta/main.nf
+  - licence: MIT
 
 ## Inputs
-_Not specified._
+- **biotype**
+  - type: string
+  - description: Biotype to apply to new GTF entries
 
 ## Outputs
-- **html**
-- **zip**
+- **fasta**
+- **gtf**
 - **versions**
   - versions.yml
     - pattern: versions.yml
@@ -46,15 +40,15 @@ This module may support per invocation options via `task.ext.*`.
 If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
-- repository: https://www.github.com/s-andrews/FastQC
+- repository: https://www.python.org/
 - module_source: nf-core/modules
-- original_authors: @drpatelh, @grst, @ewels, @FelixKrueger
+- original_authors: @pinin4fjords
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @drpatelh, @grst, @ewels, @FelixKrueger, @HR-cruk
+- authors: @pinin4fjords, @HR-cruk
 - maintainers: @HR-cruk, @siddharthjayaraman
 
 ---

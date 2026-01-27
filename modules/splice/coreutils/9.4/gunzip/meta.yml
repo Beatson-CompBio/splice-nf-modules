@@ -4,6 +4,8 @@ origin:
   module_source: "nf-core/modules/gunzip"
   original_authors:
     - "@joseespinosa"
+    - "@drpatelh"
+    - "@jfy133"
   notes: |
     This module was originally developed in the nf-core ecosystem and
     has been adapted and versioned for the splice-nf-modules repository.
@@ -46,6 +48,8 @@ output:
           pattern: "versions.yml"
 authors:
   - "@joseespinosa"
+  - "@drpatelh"
+  - "@jfy133"
   - "@HR-cruk"
 maintainers:
   - "@siddharthjayaraman"

@@ -1,31 +1,30 @@
-# fastqc
+# stringtie_stringtie
 
 ## Description
-Run FastQC on sequenced reads
+Transcript assembly and quantification for RNA-Se
 
 ## Keywords
-quality control, qc, adapters, fastq
+transcript, assembly, quantification, gtf
 
 ## Tool
-- **fastqc**
-  - description: FastQC gives general quality metrics about your reads.
-It provides information about the quality score distribution
-across your reads, the per base sequence content (%A/C/G/T).
+- **stringtie2**
+  - description: Transcript assembly and quantification for RNA-Seq
 
-You get information about adapter contamination and other
-overrepresented sequences.
-
-  - homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-  - documentation: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
-  - licence: GPL-2.0-only
-  - identifier: biotools:fastqc
+  - homepage: https://ccb.jhu.edu/software/stringtie/index.shtml
+  - documentation: https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual
+  - licence: MIT
+  - identifier: biotools:stringtie
 
 ## Inputs
-_Not specified._
+- **annotation_gtf**
+  - type: file
+  - description: Annotation gtf file (optional).
 
 ## Outputs
-- **html**
-- **zip**
+- **transcript_gtf**
+- **abundance**
+- **coverage_gtf**
+- **ballgown**
 - **versions**
   - versions.yml
     - pattern: versions.yml
@@ -46,15 +45,15 @@ This module may support per invocation options via `task.ext.*`.
 If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
-- repository: https://www.github.com/s-andrews/FastQC
+- repository: https://github.com/gpertea/stringtie
 - module_source: nf-core/modules
-- original_authors: @drpatelh, @grst, @ewels, @FelixKrueger
+- original_authors: @drpatelh
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @drpatelh, @grst, @ewels, @FelixKrueger, @HR-cruk
+- authors: @drpatelh, @HR-cruk
 - maintainers: @HR-cruk, @siddharthjayaraman
 
 ---

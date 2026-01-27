@@ -1,5 +1,13 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_catadditionalfasta"
+origin:
+  repository: "https://www.python.org/"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@pinin4fjords"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Custom module to Add a new fasta file to an old one and update an associated
   GTF
 keywords:

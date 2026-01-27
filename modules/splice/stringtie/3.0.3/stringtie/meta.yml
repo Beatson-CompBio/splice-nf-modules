@@ -1,4 +1,12 @@
 name: stringtie_stringtie
+origin:
+  repository: "https://github.com/gpertea/stringtie"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@drpatelh"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: Transcript assembly and quantification for RNA-Se
 keywords:
   - transcript
@@ -83,5 +91,7 @@ output:
           - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@drpatelh"
+  - "@HR-cruk"
 maintainers:
-  - "@drpatelh"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"

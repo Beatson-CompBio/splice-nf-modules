@@ -1,24 +1,27 @@
-# gunzip
+# untar
 
 ## Description
-Compresses and decompresses files.
+Extract files from tar, tar.gz, tar.bz2, tar.xz archives
 
 ## Keywords
-gunzip, compression, decompression
+untar, uncompress, extract
 
 ## Tool
-- **gunzip**
-  - description: gzip is a file format and a software application used for file compression and decompression.
+- **untar**
+  - description: Extract tar, tar.gz, tar.bz2, tar.xz files.
 
-  - documentation: https://www.gnu.org/software/gzip/manual/gzip.html
+  - documentation: https://www.gnu.org/software/tar/manual/
   - licence: GPL-3.0-or-later
 
 ## Inputs
 _Not specified._
 
 ## Outputs
-- **gunzip**
+- **untar**
 - **versions**
+  - versions.yml
+    - pattern: versions.yml
+    - description: File containing software versions
 
 ## Usage
 This directory contains a Nextflow module.
@@ -36,15 +39,15 @@ If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
 - repository: https://github.com/coreutils/coreutils
-- module_source: nf-core/modules/gunzip
-- original_authors: @joseespinosa, @drpatelh, @jfy133
+- module_source: nf-core/modules/untar
+- original_authors: @joseespinosa, @drpatelh, @matthdsm, @jfy133
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @joseespinosa, @drpatelh, @jfy133, @HR-cruk
-- maintainers: @siddharthjayaraman, @HR-cruk
+- authors: @joseespinosa, @drpatelh, @matthdsm, @jfy133, HR-cruk
+- maintainers: @HR-cruk, @siddharthjayaraman
 
 ---
 

@@ -4,6 +4,10 @@ origin:
   module_source: "nf-core/modules"
   original_authors:
     - "@edmundmiller"
+    - "@sruthipsuresh"
+    - "@drpatelh"
+    - "@sidorov-si"
+    - "@chris-cheshire"
   notes: |
     This module was originally developed in the nf-core ecosystem and
     has been adapted and versioned for the splice-nf-modules repository.
@@ -67,6 +71,10 @@ output:
           pattern: "versions.yml"
 authors:
   - "@edmundmiller"
+  - "@sruthipsuresh"
+  - "@drpatelh"
+  - "@sidorov-si"
+  - "@chris-cheshire"
   - "@HR-cruk"
 maintainers:
   - "@HR-cruk"

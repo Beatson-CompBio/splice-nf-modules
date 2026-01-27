@@ -1,24 +1,30 @@
-# gunzip
+# custom_getchromsizes
 
 ## Description
-Compresses and decompresses files.
+Generates a FASTA file of chromosome sizes and a fasta index file
 
 ## Keywords
-gunzip, compression, decompression
+fasta, chromosome, indexing
 
 ## Tool
-- **gunzip**
-  - description: gzip is a file format and a software application used for file compression and decompression.
-
-  - documentation: https://www.gnu.org/software/gzip/manual/gzip.html
-  - licence: GPL-3.0-or-later
+- **samtools**
+  - description: Tools for dealing with SAM, BAM and CRAM files
+  - homepage: http://www.htslib.org/
+  - documentation: http://www.htslib.org/doc/samtools.html
+  - tool_dev_url: https://github.com/samtools/samtools
+  - licence: MIT
 
 ## Inputs
 _Not specified._
 
 ## Outputs
-- **gunzip**
+- **sizes**
+- **fai**
+- **gzi**
 - **versions**
+  - versions.yml
+    - pattern: versions.yml
+    - description: File containing software versions
 
 ## Usage
 This directory contains a Nextflow module.
@@ -35,16 +41,16 @@ This module may support per invocation options via `task.ext.*`.
 If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
-- repository: https://github.com/coreutils/coreutils
-- module_source: nf-core/modules/gunzip
-- original_authors: @joseespinosa, @drpatelh, @jfy133
+- repository: http://www.htslib.org/
+- module_source: nf-core/modules
+- original_authors: @tamara-hodgetts, @chris-cheshire, @muffato
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @joseespinosa, @drpatelh, @jfy133, @HR-cruk
-- maintainers: @siddharthjayaraman, @HR-cruk
+- authors: @tamara-hodgetts, @chris-cheshire, @muffato, @HR-cruk
+- maintainers: @HR-cruk, @siddharthjayaraman
 
 ---
 

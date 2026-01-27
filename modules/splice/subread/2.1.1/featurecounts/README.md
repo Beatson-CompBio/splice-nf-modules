@@ -1,31 +1,25 @@
-# fastqc
+# subread_featurecounts
 
 ## Description
-Run FastQC on sequenced reads
+Count reads that map to genomic features
 
 ## Keywords
-quality control, qc, adapters, fastq
+counts, fasta, genome, reference
 
 ## Tool
-- **fastqc**
-  - description: FastQC gives general quality metrics about your reads.
-It provides information about the quality score distribution
-across your reads, the per base sequence content (%A/C/G/T).
-
-You get information about adapter contamination and other
-overrepresented sequences.
-
-  - homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-  - documentation: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
-  - licence: GPL-2.0-only
-  - identifier: biotools:fastqc
+- **featurecounts**
+  - description: featureCounts is a highly efficient general-purpose read summarization program that counts mapped reads for genomic features such as genes, exons, promoter, gene bodies, genomic bins and chromosomal locations. It can be used to count both RNA-seq and genomic DNA-seq reads.
+  - homepage: http://bioinf.wehi.edu.au/featureCounts/
+  - documentation: http://bioinf.wehi.edu.au/subread-package/SubreadUsersGuide.pdf
+  - licence: GPL v3
+  - identifier: biotools:subread
 
 ## Inputs
 _Not specified._
 
 ## Outputs
-- **html**
-- **zip**
+- **counts**
+- **summary**
 - **versions**
   - versions.yml
     - pattern: versions.yml
@@ -46,15 +40,15 @@ This module may support per invocation options via `task.ext.*`.
 If you extend this module, document new `task.ext.*` keys here in the README.
 
 ## Provenance
-- repository: https://www.github.com/s-andrews/FastQC
+- repository: https://subread.sourceforge.net/
 - module_source: nf-core/modules
-- original_authors: @drpatelh, @grst, @ewels, @FelixKrueger
+- original_authors: @ntoda03
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @drpatelh, @grst, @ewels, @FelixKrueger, @HR-cruk
+- authors: @ntoda03, @HR-cruk
 - maintainers: @HR-cruk, @siddharthjayaraman
 
 ---

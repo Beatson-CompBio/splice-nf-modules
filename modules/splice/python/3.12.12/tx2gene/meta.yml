@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "custom_tx2gene"
 origin:
-  repository: "https://github.com/nf-core/modules/tree/master/modules/nf-core/custom/tx2gene"
+  repository: "https://www.python.org/"
   module_source: "nf-core/modules"
   original_authors:
     - "@pinin4fjords"

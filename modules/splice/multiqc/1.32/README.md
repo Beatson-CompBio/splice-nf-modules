@@ -79,13 +79,13 @@ If you extend this module, document new `task.ext.*` keys here in the README.
 ## Provenance
 - repository: https://github.com/MultiQC/MultiQC
 - module_source: nf-core/modules
-- original_authors: @abhi18av
+- original_authors: @abhi18av, @bunop, @drpatelh, @jfy133
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @abhi18av, @HR-cruk
+- authors: @abhi18av, @bunop, @drpatelh, @jfy133, @HR-cruk
 - maintainers: @HR-cruk, @siddharthjayaraman
 
 ---

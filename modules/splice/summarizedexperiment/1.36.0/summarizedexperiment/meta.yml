@@ -1,5 +1,13 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
 name: "summarizedexperiment_summarizedexperiment"
+origin:
+  repository: "https://github.com/arq5x/bedtools2"
+  module_source: "nf-core/modules"
+  original_authors:
+    - "@pinin4fjords"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.
 description: |
   SummarizedExperiment container
 keywords:
@@ -93,5 +101,7 @@ output:
           - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@pinin4fjords"
+  - "@HR-cruk"
 maintainers:
-  - "@pinin4fjords"
+  - "@HR-cruk"
+  - "@siddharthjayaraman"

@@ -1,4 +1,14 @@
 name: samtools_faidx
+origin:
+  repository: "http://www.htslib.org/"
+  module_source: "nf-core/modules"
+  original_authors:
+      - "@drpatelh"
+      - "@ewels"
+      - "@phue"
+  notes: |
+    This module was originally developed in the nf-core ecosystem and
+    has been adapted and versioned for the splice-nf-modules repository.  
 description: Index FASTA file, and optionally generate a file of chromosome sizes
 keywords:
   - index
@@ -109,9 +119,10 @@ topics:
           type: string
           description: The command used to generate the version of the tool
 authors:
+  - "@HR-cruk"
   - "@drpatelh"
   - "@ewels"
   - "@phue"
 maintainers:
-  - "@maxulysse"
-  - "@phue"
+  - "@HR-cruk"
+  - "@siddhathjayaraman"
