@@ -1,0 +1,1 @@
+https://github.com/nf-core/test-datasets/raw/modules/data/genomics/sarscov2/genome/genome.gtf, genome.gtf

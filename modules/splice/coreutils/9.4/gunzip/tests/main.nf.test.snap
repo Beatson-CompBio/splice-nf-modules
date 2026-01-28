@@ -1,0 +1,134 @@
+{
+    "Should run without failures - prefix - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.xyz.fastq:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ],
+                "gunzip": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.xyz.fastq:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-20T16:39:21.014202455"
+    },
+    "Should run without failures - stub": {
+        "content": [
+            {
+                "0": [
+                    [
+                        [
+                            
+                        ],
+                        "test_1.fastq:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ],
+                "gunzip": [
+                    [
+                        [
+                            
+                        ],
+                        "test_1.fastq:md5,d41d8cd98f00b204e9800998ecf8427e"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-20T16:38:57.11502579"
+    },
+    "Should run without failures": {
+        "content": [
+            {
+                "0": [
+                    [
+                        [
+                            
+                        ],
+                        "test_1.fastq:md5,4161df271f9bfcd25d5845a1e220dbec"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ],
+                "gunzip": [
+                    [
+                        [
+                            
+                        ],
+                        "test_1.fastq:md5,4161df271f9bfcd25d5845a1e220dbec"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-20T16:38:19.543404645"
+    },
+    "Should run without failures - prefix": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.xyz.fastq:md5,4161df271f9bfcd25d5845a1e220dbec"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ],
+                "gunzip": [
+                    [
+                        {
+                            "id": "test"
+                        },
+                        "test.xyz.fastq:md5,4161df271f9bfcd25d5845a1e220dbec"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,c5b1f506505cf8cc26918abc62d741a2"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.10.2"
+        },
+        "timestamp": "2026-01-20T16:38:38.642134324"
+    }
+}

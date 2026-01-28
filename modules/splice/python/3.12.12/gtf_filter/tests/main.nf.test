@@ -1,0 +1,46 @@
+nextflow_process {
+
+    name "Test Process GTF_FILTER"
+    script "../main.nf"
+    process "GTF_FILTER"
+
+    test("sarscov2 - fasta - gtf") {
+
+        when {
+            process {
+                """
+                input[0] = file("${moduleTestDir}" + '/data/genome.fasta', checkIfExists: true)
+                input[1] = file("${moduleTestDir}" + '/data/genome.gtf', checkIfExists: true)
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+    }
+
+    test("sarscov2 - fasta - gtf - stub") {
+
+    options "-stub"
+
+        when {
+            process {
+                """
+                input[0] = file("${moduleTestDir}" + '/data/genome.fasta', checkIfExists: true)
+                input[1] = file("${moduleTestDir}" + '/data/genome.gtf', checkIfExists: true)
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+    }
+}

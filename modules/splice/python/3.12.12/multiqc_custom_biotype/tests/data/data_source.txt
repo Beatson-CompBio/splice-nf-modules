@@ -1,0 +1,2 @@
+https://github.com/nf-core/test-datasets/raw/rnaseq/testdata/multiqc_custom_biotype/biotypes_header.txt, biotypes_header.txt
+https://github.com/nf-core/test-datasets/raw/rnaseq/testdata/multiqc_custom_biotype/test.featureCounts.txt, test_featureCounts.txt

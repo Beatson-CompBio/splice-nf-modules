@@ -4,6 +4,8 @@ origin:
   module_source: "nf-core/modules"
   original_authors:
     - "@drpatelh"
+    - "@kevinmenden"
+    - "@eit-maxlcummins"
   notes: |
     This module was originally developed in the nf-core ecosystem and
     has been adapted and versioned for the splice-nf-modules repository.
@@ -116,6 +118,8 @@ output:
           pattern: "versions.yml"
 authors:
   - "@drpatelh"
+  - "@kevinmenden"
+  - "@eit-maxlcummins"
   - "@HR-cruk"
 maintainers:
   - "@HR-cruk"

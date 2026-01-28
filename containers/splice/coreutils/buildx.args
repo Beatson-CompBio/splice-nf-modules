@@ -1,0 +1,7 @@
+--platform=linux/amd64
+--pull=true
+--provenance=false
+--sbom=false
+--label=org.opencontainers.image.title=coreutils
+--label=org.opencontainers.image.description=coreutils 9.4 + sed 4.9 + grep 3.11 + gzip 1.12 + tar 1.35 SPLICE Nextflow modules
+--label=org.opencontainers.image.licenses=MIT

@@ -1,0 +1,24 @@
+{
+  "image": "quay.io/splice/coreutils",
+  "mode": "local",
+  "tag": "9.5--cfg-617a26dd5fa6-local",
+  "tag_base": "9.5--cfg-617a26dd5fa6",
+  "cfg_hash": "617a26dd5fa6",
+  "tool_list": "coreutils",
+  "tools": { "coreutils": "9.5" },
+  "inputs": {
+    "environment_yaml_sha256": "2d181000a3114469018f3d08fa27803bb91f92540f6d18149cdd8b549e20c5c3",
+    "dockerfile_sha256": "4b56fbc8c5da12edf5f401e50b3c0e893ca0ab2742844872de93d79a50b2f09f",
+    "buildx_args_sha256": "3ab2fc77ab4a97eab84afddc49e2fab968d4d048daa5b0696527eecf4d36b5b1"
+  },
+  "build_log": {
+    "path": "builds/coreutils__9.5--cfg-617a26dd5fa6-local.build.log",
+    "sha256": "4c9b2999e2911fccd32daf969a471d207f347fb3519bc0817f8560d7c45d6ad1"
+  },
+  "git": {
+    "commit": "0efc9e6ba1897f49dc6eb60f041ecac2cb0d72ab",
+    "commit_short": "0efc9e6",
+    "branch": "wip/HRVersionControl",
+    "dirty_count": 3
+  }
+}

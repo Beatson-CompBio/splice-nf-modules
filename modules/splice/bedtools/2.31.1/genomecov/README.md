@@ -38,13 +38,13 @@ If you extend this module, document new `task.ext.*` keys here in the README.
 ## Provenance
 - repository: https://github.com/arq5x/bedtools2
 - module_source: nf-core/modules
-- original_authors: @edmundmiller
+- original_authors: @edmundmiller, @sruthipsuresh, @drpatelh, @sidorov-si, @chris-cheshire
 
 This module was originally developed in the nf-core ecosystem and
 has been adapted and versioned for the splice-nf-modules repository.
 
 ## Contacts
-- authors: @edmundmiller, @HR-cruk
+- authors: @edmundmiller, @sruthipsuresh, @drpatelh, @sidorov-si, @chris-cheshire, @HR-cruk
 - maintainers: @HR-cruk, @siddharthjayaraman
 
 ---

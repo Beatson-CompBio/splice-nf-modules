@@ -4,6 +4,9 @@ origin:
   module_source: "nf-core/modules"
   original_authors:
     - "@drpatelh"
+    - "@grst"
+    - "@ewels"
+    - "@FelixKrueger"
   notes: |
     This module was originally developed in the nf-core ecosystem and
     has been adapted and versioned for the splice-nf-modules repository.
@@ -70,6 +73,9 @@ output:
           - edam: http://edamontology.org/format_3750 # YAML
 authors:
   - "@drpatelh"
+  - "@grst"
+  - "@ewels"
+  - "@FelixKrueger"
   - "@HR-cruk"
 maintainers:
   - "@HR-cruk"
